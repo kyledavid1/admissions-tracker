@@ -29,7 +29,3 @@ for an interview.
 with an admissions officer for a second round, in-person interview (provided that the AOs have given that 
 applicant a passing grade for their phone screener). Instructors will have their own version of a questionnaire 
 that they can fill out either during or after their interview with the applicant.
-
-**Testing
-
-#Testing
