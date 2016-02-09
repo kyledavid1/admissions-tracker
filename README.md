@@ -1,5 +1,12 @@
 # Admissions Tracker
 
+### Team Members
+
+Chris Mahr
+Angela Perez
+Dylan Porteus
+Kyle Stengline
+
 Welcome to the General Assembly Admissions Portal, a Team ACaDemiK original. The Portal is designed
 so that four different types of people can interact with it:
 
