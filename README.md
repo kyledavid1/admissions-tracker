@@ -2,10 +2,15 @@
 
 ### Team Members
 
-Chris Mahr
-Angela Perez
-Dylan Porteus
-Kyle Stengline
+[Chris Mahr](https://github.com/cmahrtian)
+
+[Angela Perez](https://github.com/anfperez)
+
+[Dylan Porteus](https://github.com/dylanporteus)
+
+[Kyle Stengline](https://github.com/kyledavid1)
+
+### Project Description
 
 Welcome to the General Assembly Admissions Portal, a Team ACaDemiK original. The Portal is designed
 so that four different types of people can interact with it:
