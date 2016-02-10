@@ -28,7 +28,7 @@ The Heroku-deployed app uses core concepts of Ruby on Rails - namely RESTful rou
 
 ### ERD
 
-![alt text](https://lh6.googleusercontent.com/41EREkHqVyTMjuSdWR0P9QdsQAcM81utmyyTVLTRKNRKfZpALsKV8cibpXI3Tzea0uetvg=w1416-h602)
+![alt text](https://files.slack.com/files-tmb/T0351JZQ0-F0LRKADDY-cb9c45e5df/img_7640_1024.jpg)
 
 ### Wireframes
 
