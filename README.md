@@ -32,8 +32,8 @@ The Heroku-deployed app uses core concepts of Ruby on Rails - namely RESTful rou
 
 ### Wireframes
 
-![alt text](https://lh6.googleusercontent.com/F3qc-fXnAHoHsoGtd0fQMLh6chJPowM39su1_iTAkhe6XMZb-HuohPPkSaeMi8fC0Sej4w=s190)
+![alt text](https://lh6.googleusercontent.com/F3qc-fXnAHoHsoGtd0fQMLh6chJPowM39su1_iTAkhe6XMZb-HuohPPkSaeMi8fC0Sej4w=w1416-h602)
 
-![alt text](https://lh6.googleusercontent.com/MoAr3CbPcIbk3HO2hFNmKAfL-KFBBMZTy1KWG-uiWpo4JUIbTlEaFQZPKE8Tj7HfRs4Ksg=s190)
+![alt text](https://lh6.googleusercontent.com/MoAr3CbPcIbk3HO2hFNmKAfL-KFBBMZTy1KWG-uiWpo4JUIbTlEaFQZPKE8Tj7HfRs4Ksg=w1416-h602)
 
-![alt text](https://lh6.googleusercontent.com/glkF5FMJVfUoDkT0BfzSbPPc0cUzjnSk9hPpeMPGL3Cxfm5FHnsB0M4kKmigaHwc0DPqoQ=s190)
+![alt text](https://lh6.googleusercontent.com/glkF5FMJVfUoDkT0BfzSbPPc0cUzjnSk9hPpeMPGL3Cxfm5FHnsB0M4kKmigaHwc0DPqoQ=w1416-h602)
