@@ -1,11 +1,11 @@
 class AdmissionsofficersController < ApplicationController
 
 	def index 
-		@students = Students.all
+		@students = Student.all
 	end
 
 	def show
-		@students = Students.find(params[:id])
+		@student = Student.find(params[:id])
 	end
 
 	def new
@@ -15,15 +15,16 @@ class AdmissionsofficersController < ApplicationController
 	end
 
 	def edit
-		@students = Students.find(params[:id])
-		if @students.save
+		@student = Student.find(params[:id])
+		if @student.save
+			redirect_to student_path(student.id)
 		else
 			render :edit
 		end
 	end
 
 	def update
-		@students = Students.find(params[:id])
+		@student = Student.find(params[:id])
 	end
 
 end
