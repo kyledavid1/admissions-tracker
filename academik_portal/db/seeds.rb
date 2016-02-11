@@ -1,4 +1,3 @@
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -8,15 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Student.create(email: 'test@test.com', password: 'test')
 
-Students.destroy_all
-Instructors.destroy_all
-AdmissionsOfficers.destroy_all
- InstructorsQuestionnaires.destroy_all
- AoQuestionnaires.destroy_all
+
+
+Student.destroy_all
+Instructor.destroy_all
+AdmissionOfficer.destroy_all
+InstructorQuestionnaire.destroy_all
+AoQuestionnaire.destroy_all
+
 
 
 30.times do |student|
-  Student.create (
+  Student.create(
     name: Faker::Name.name,
     email: Faker::Internet.free_email,
     password_digest: Faker::Lorem.word,
@@ -27,7 +29,7 @@ AdmissionsOfficers.destroy_all
 end
 
 15.times do |instructor|
-  Instructor.create (
+  Instructor.create(
     name: Faker::Name.name,
     email: Faker::Internet.safe_email,
     password_digest: Faker::Lorem.word,
@@ -36,7 +38,7 @@ end
 end
 
 15.times do |ao_officer|
-  AdmissionOfficer.create (
+  AdmissionOfficer.create(
     name: Faker::Name.name,
     email: Faker::Internet.safe_email,
     password_digest: Faker::Lorem.word
