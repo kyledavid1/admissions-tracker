@@ -9,9 +9,9 @@
        name: Faker::Name.name,
        email: Faker::Internet.free_email,
        password_digest: Faker::Lorem.word,
-       course: ["WDI", "UXDI", "PMI"].sample    
+       course: ["WDI", "UXDI", "PMI"].sample,    
        application_essay: Faker::Lorem.paragraph,
-       application_status: ["Phone Interview: Pending", "In-Person Interview", "Accepted", "Rejected"].sample
+       application_status: "Phone Interview: Pending"
 		)end
 
 
