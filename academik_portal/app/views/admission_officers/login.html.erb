@@ -1,0 +1,13 @@
+<% if @error %>
+<h3>Incorrect Email/PW</h3>
+<% end %>
+
+<div id= 'loginform'>
+<form method='POST' action='/login'>
+	<input type='text' name='email'><br />
+	<input type='password' name='password'>
+	<input type='hidden' name='authenticity_token' value'<%= form_authenticity_token() %>' size='65'><br />
+<!-- Need the above in your form. This is apart of the has_secure_password. -->
+	<button type="submit">Log In</button>
+</form>
+</div>
