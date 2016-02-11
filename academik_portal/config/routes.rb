@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/' => 'admissions_officers#login'
+  post '/login' => 'admissions_officers#login'
+
   resources :students
   resources :instructors
   resources :ao_questionnaires
