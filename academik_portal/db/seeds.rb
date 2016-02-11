@@ -1,10 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Students.destroy_all
+Instructors.destroy_all
+AdmissionsOfficers.destroy_all
+ InstructorsQuestionnaires.destroy_all
+ AoQuestionnaires.destroy_all
+
+
 30.times do |student|
   Student.create (
     name: Faker::Name.name,
@@ -34,7 +35,7 @@ end
 end	
 
 15.times do |iq|
-  InstructorsQuestionnaire.create(
+  InstructorQuestionnaire.create(
 		strengths: Faker::Hipster.sentence(8),
 		weaknesses: Faker::Hipster.sentence(5),
 		good_fit: [true, false].sample,
@@ -49,3 +50,4 @@ end
 	reason_for_applying: Faker::Hipster.sentence(10)
   )
 end
+
