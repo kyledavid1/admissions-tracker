@@ -1,20 +1,20 @@
-class AdmissionOfficersController < ApplicationController
+# class AdmissionOfficersController < ApplicationController
 
-	def login
-		admin_user = AdmissionOfficer.find_by(email: params['email'])
+# 	def login
+# 		admin_user = AdmissionOfficer.find_by(email: params['email'])
 
-		if admin_user && admin_user.authenticate(params['password'])
-			session[:user_name] = admin_user.email
-			@admin = session[:user_name]
+# 		if admin_user && admin_user.authenticate(params['password'])
+# 			session[:user_name] = admin_user.email
+# 			@admin = session[:user_name]
 
-			cookies[:username] = admin_user.email
-			cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
+# 			cookies[:username] = admin_user.email
+# 			cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
 
-			render :index
-		else
-			@error = true
-			render :index
-		end
+# 			render :index
+# 		else
+# 			@error = true
+# 			render :index
+# 		end
 	end
 
 	def index 
