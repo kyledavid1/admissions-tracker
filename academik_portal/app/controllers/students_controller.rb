@@ -1,13 +1,31 @@
-class StudentsController <ApplicationController
+class StudentsController < ApplicationController
+
+    #this page was last edited on 2/10/16
+	def student_current_user
+		#need code here to indicate that the person currently logged in is a student
+	end	
+
+    #
+	def student_logged_in
+		student_current_user
+	end
 
     #student actually would not be able to look at this page
 	def index
-		@students = Student.all
+		if student_logged_in
+			render : #students cannot view a list of students. They wil be redirected back to their own dashboard
+		else
+			@students = Student.all
+		end
 	end
 
 	#student will not be able to search for other students, only look at their own page
 	def show
-		@student = Student.find(params[:id])
+		if student_logged_in
+			render : #students will not be able to see this, they will be redirected back to their dashboard
+		else
+			@student = Student.find(params[:id])
+		end
 	end
 
 	def new
@@ -20,8 +38,9 @@ class StudentsController <ApplicationController
 		if @student.save 
             redirect_to #student_dashboard
         else
-            render #register page
+            render #students will be directed back to register page
         end
+        #methods folded into this method: register for account, pick program, submit application, provide information
 	end
 
 	def edit
@@ -35,9 +54,8 @@ class StudentsController <ApplicationController
 	def update
 		@student = Student.find(params[:id])
         @student.update(name: params["student"]["name"], email: params["student"]["email"], password: params["student"]["password"], course: params["student"]["course"], application_essay["student"]["application_essay"])
-        redirect_to band_path
+        redirect_to #student dashboard
     end
-	end
 
 	def destroy
 		@student = Student.find(params[:id])
