@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -6,10 +6,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-<<<<<<< HEAD
 # Student.create(email: 'test@test.com', password: 'test')
-=======
-=======
 
 Students.destroy_all
 Instructors.destroy_all
@@ -63,8 +60,3 @@ end
 	reason_for_applying: Faker::Hipster.sentence(10)
   )
 end
-<<<<<<< HEAD
->>>>>>> 4d9a524a428a3717b890e281dd111d2f40b80b1e
-=======
-
->>>>>>> 4171fe6e62bdf2762adf0a0171a4176a6910847b
