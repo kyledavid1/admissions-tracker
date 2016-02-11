@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :ao_questionnaires
   resources :instructors_questionnaires
   resources :admissions_officers
+
+  root :controller => 'static', :action => '/'
+  post '/login' => 'students#login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
