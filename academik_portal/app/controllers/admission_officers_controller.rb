@@ -10,7 +10,7 @@ class AdmissionOfficersController < ApplicationController
 			cookies[:username] = admin_user.email
 			cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
 
-			render :index
+			render :admission_officers
 		else
 			@error = true
 			render :index
@@ -21,7 +21,7 @@ class AdmissionOfficersController < ApplicationController
 		@students = Student.all
 	end
 
-	def show
+	def student
 		@student = Student.find(params[:id])
 	end
 
