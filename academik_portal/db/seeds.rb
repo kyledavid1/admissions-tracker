@@ -34,7 +34,7 @@ end
 end	
 
 15.times do |iq|
-  InstructorsQuestionnaire.create(
+  InstructorQuestionnaire.create(
 		strengths: Faker::Hipster.sentence(8),
 		weaknesses: Faker::Hipster.sentence(5),
 		good_fit: [true, false].sample,
