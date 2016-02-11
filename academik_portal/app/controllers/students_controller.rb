@@ -51,6 +51,13 @@ class StudentsController < ApplicationController
 		@student = Student.new
 	end
 
+	def student_params 
+		params.require(:student).permit(:name, :email, :password_digest, :course, :application_essay)
+	end
+
+	def create
+		Student.create(student_params)
+	end
 	# def create
 	# 	@student = Student.create(params["student"].permit(:name, :email, :password, :course, :application_essay))
 	# 	#student parameters which are not determined by student: id, application_status, admissions_officer_id, and instructor_id
@@ -70,9 +77,6 @@ class StudentsController < ApplicationController
  #            render :edit
  #        end
 	# end
-	def student_params 
-		params.require(:student).permit(:name, :email, :password, :course, :application_essay)
-	end
 
 	def update
 		@student = Student.find(params[:id])
