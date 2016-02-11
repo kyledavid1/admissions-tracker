@@ -1,4 +1,4 @@
-class StudentsController <ApplicationController
+class StudentsController < ApplicationController
 
     #this page was last edited on 2/10/16
 	def student_current_user
