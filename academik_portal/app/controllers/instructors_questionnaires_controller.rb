@@ -1,5 +1,6 @@
 class InstructorsQuestionnairesController < ApplicationController
 
+
 	def index
 	end
 
@@ -19,3 +20,4 @@ class InstructorsQuestionnairesController < ApplicationController
 	end
 
 end
+

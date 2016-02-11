@@ -1,4 +1,4 @@
-class AdmissionsOfficersController < ApplicationController
+class AdmissionOfficersController < ApplicationController
 
 	def login
 		admin_user = AdmissionOfficer.find_by(email: params['email'])

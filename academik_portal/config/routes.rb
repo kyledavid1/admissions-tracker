@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+
+  
+
+  
+
   get '/admissions_officers' => 'admissions_officers#index'
   get '/admissions_officers/login' => 'admissions_officers#login'
   post '/admissions_officers/login' => 'admissions_officers#login'
+
 
   resources :students
   resources :instructors
