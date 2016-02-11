@@ -1,17 +1,18 @@
 <h1>YO, SHIT WORKS!!!</h1>
 
-<% if !current_user %>
-<h1><%= link_to "Login", admissions_officers_login_path %></h1>
-<% end %>
+<%# #if !current_user %>
+<h1><%= link_to "Login", admissions_officers_login_form_path %></h1>
+<%# end %>
+
+<!-- <h1><%#= link_to "Students", admissions_officers_path %></h1> -->
 
 <!-- Uncomment when we seed data
 Commented on 2/10/16 -->
 
-<!-- <h1>Students</h1>
+<h1>Students</h1>
 
-<% #@students.each #do |s| %>
-	<h2>Student: <%#= link_to s.name, students_path(s.id) %></h2>
-	<% #end %>
+<% @students.each do |s| %>
+	<h2>Student: <%= link_to s.name, student_path(s.id) %></h2>
+	<% end %>
 
-	<h2><%#= link_to "Add New Applicant", new_student_path %></h2>
- -->
+	<h2><%= link_to "Add New Applicant", new_student_path %></h2>

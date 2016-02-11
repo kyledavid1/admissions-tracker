@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/admissions_officers' => 'admissions_officers#index'
-  get '/admissions_officers/login' => 'admissions_officers#login'
+  get '/admissions_officers/login_form' => 'admissions_officers#login_form'
   post '/admissions_officers/login' => 'admissions_officers#login'
 
   resources :students
