@@ -16,7 +16,7 @@ class InstructorsController < ApplicationController
   end
 
   def index
-  	@students = Student.where(application_status: 'In-Person Interview Pending')
+  	@students = Student.where(application_status: 'In-Person Interview')
   end
 
   # def show
