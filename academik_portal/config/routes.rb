@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
 
+
   
 
   
+
+  get '/admissions_officers' => 'admissions_officers#index'
+  get '/admissions_officers/login' => 'admissions_officers#login'
+  post '/admissions_officers/login' => 'admissions_officers#login'
+
 
   resources :students
   resources :instructors
   resources :ao_questionnaires
   resources :instructors_questionnaires
   resources :admissions_officers
+
+  root :controller => 'static', :action => '/'
+  post '/login' => 'students#login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
