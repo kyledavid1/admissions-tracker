@@ -1,7 +1,7 @@
 class AdmissionsOfficersController < ApplicationController
 
 	def login
-		admin_user = AdmissionsOfficers.find_by(email: params['email'])
+		admin_user = AdmissionOfficer.find_by(email: params['email'])
 
 		if admin_user && admin_user.authenticate(params['password'])
 			session[:user_name] = admin_user.email
