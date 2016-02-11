@@ -1,4 +1,4 @@
-class InstructorsQuestionnairesController < ApplicationController
+class InstructorQuestionnairesController < ApplicationController
 
 
 	def index
