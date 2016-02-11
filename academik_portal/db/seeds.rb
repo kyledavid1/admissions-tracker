@@ -1,34 +1,34 @@
 
-#Students.destroy_all
-#Instructors.destroy_all
-#AdmissionsOfficers.destroy_all
-# InstructorsQuestionnaires.destroy_all
-# AoQuestionnaires.destroy_all
+Students.destroy_all
+Instructors.destroy_all
+AdmissionsOfficers.destroy_all
+ InstructorsQuestionnaires.destroy_all
+ AoQuestionnaires.destroy_all
 
-30.times do |student|
-	Students.create(
-       name: Faker::Name.name,
-       email: Faker::Internet.free_email,
-       password_digest: Faker::Lorem.word,
-       course: ["WDI", "UXDI", "PMI"].sample,    
-       application_essay: Faker::Lorem.paragraph,
-       application_status: "Phone Interview: Pending"
-		)end
-
-
+# 30.times do |student|
+# 	Student.create(
+#        name: Faker::Name.name,
+#        email: Faker::Internet.free_email,
+#        password_digest: Faker::Lorem.word,
+#        course: ["WDI", "UXDI", "PMI"].sample,    
+#        application_essay: Faker::Lorem.paragraph,
+#        application_status: "Phone Interview: Pending"
+# 		)end
 
 
-15.times do |instructor|
-	Instructors.create(
-       name: Faker::Name.name,
-       email: Faker::Internet.safe_email,
-       password_digest: Faker::Lorem.word,
-       course: ["WDI", "UXDI", "PMI"].sample    
-		)end
 
 
-15.times do |ao_officer|
-    AdmissionsOfficers.create(
+# 15.times do |instructor|
+# 	Instructor.create(
+#        name: Faker::Name.name,
+#        email: Faker::Internet.safe_email,
+#        password_digest: Faker::Lorem.word,
+#        course: ["WDI", "UXDI", "PMI"].sample    
+# 		)end
+
+
+15.times do |ao|
+    AdmissionOfficer.create(
         name: Faker::Name.name,
         email: Faker::Internet.safe_email,
         password_digest: Faker::Lorem.word
@@ -42,20 +42,20 @@
 
 
 15.times do |iq|
-	InstructorsQuestionnaires.create(
+	InstructorQuestionnaire.create(
 		strengths: Faker::Hipster.sentence(8),
 		weaknesses: Faker::Hipster.sentence(5),
-		good_fit: boolean,
+		good_fit: [true, false].sample,
 		comments: Faker::Hipster.sentence(15)
        )end
 
 
- 15.times do |ao_ques|
- AoQuestionnaires.create(
-	 course_goals: Faker::Hipster.sentence(10),
-	 comments: Faker::Hipster.sentence(10),
-	 reason_for_applying: Faker::Hipster.sentence(10)
-       )end
+ # 15.times do |ao_ques|
+ # AoQuestionnaire.create(
+	#  course_goals: Faker::Hipster.sentence(10),
+	#  comments: Faker::Hipster.sentence(10),
+	#  reason_for_applying: Faker::Hipster.sentence(10)
+ #       )end
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
