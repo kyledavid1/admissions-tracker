@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :instructors
   resources :ao_questionnaires
   resources :instructors_questionnaires
-  resources :admissions_officers
+  resources :admission_officers
 
   root :controller => 'static', :action => '/'
   post '/login' => 'students#login'

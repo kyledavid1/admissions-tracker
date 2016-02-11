@@ -15,7 +15,6 @@ AdmissionsOfficers.destroy_all
  AoQuestionnaires.destroy_all
 
 
->>>>>>> 4171fe6e62bdf2762adf0a0171a4176a6910847b
 30.times do |student|
   Student.create (
     name: Faker::Name.name,
