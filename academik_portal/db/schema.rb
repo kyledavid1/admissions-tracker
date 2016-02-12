@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211224121) do
+ActiveRecord::Schema.define(version: 20160212150337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160211224121) do
     t.string  "application_status",   default: "Phone Interview Pending"
     t.integer "instructor_id"
     t.integer "admission_officer_id"
+    t.string  "phone_number"
   end
 
   add_index "students", ["admission_officer_id"], name: "index_students_on_admission_officer_id", using: :btree

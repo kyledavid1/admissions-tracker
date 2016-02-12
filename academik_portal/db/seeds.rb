@@ -23,7 +23,8 @@ AoQuestionnaire.destroy_all
     password_digest: Faker::Lorem.word,
     course: ['WDI', 'UXDI', 'PMI'].sample,    
     application_essay: Faker::Lorem.paragraph,
-    application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample
+    application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample,
+    phone_number: Faker::phone_number
   )
 end
 
