@@ -18,10 +18,10 @@ class AoQuestionnairesController < ApplicationController
 		@ao_questionnaire = AoQuestionnaire.new(aoq_params)
 	end
 
-	def aoq_params
-        params.require(:)
+	# def aoq_params
+ #        params.require(:)
 		
-	end
+	# end
 
 
 end

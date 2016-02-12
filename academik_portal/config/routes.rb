@@ -1,20 +1,14 @@
 Rails.application.routes.draw do
 
-
-  
-
-  
-
-  get '/admissions_officers' => 'admissions_officers#index'
-  get '/admissions_officers/login' => 'admissions_officers#login'
-  post '/admissions_officers/login' => 'admissions_officers#login'
+  get '/admission_officers/login_form' => 'admission_officers#login_form'
+  post '/admission_officers/login' => 'admission_officers#login'
 
 
   resources :students
   resources :instructors
   resources :ao_questionnaires
-  resources :instructors_questionnaires
-  resources :admissions_officers
+  resources :instructor_questionnaires
+  resources :admission_officers
 
   root :controller => 'static', :action => '/'
   post '/login' => 'students#login'
