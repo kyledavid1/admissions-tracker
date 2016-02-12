@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/students/login_form' => 'students#login_form'
   post '/students/login' => 'students#login'
 
+  get '/instructors/login_form' => 'instructors#login_form'
+  post '/instructors/login' => 'instructors#login'
 
 
   resources :students
