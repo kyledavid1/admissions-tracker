@@ -1,0 +1,8 @@
+<h1>Welcome <%= @instructor.name %>! Select a student for an in-person interview!</h1>
+
+<% @students.each do |student| %>
+	<h2><%= link_to student.name, student_path(student.id) %></h2>
+	<h3><%= student.phone_number %></h3>
+	<h3><%= mail_to student.email %></h3>
+	------------------------------------------------------------
+<% end %>	

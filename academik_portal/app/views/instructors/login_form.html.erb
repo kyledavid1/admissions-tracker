@@ -1,0 +1,15 @@
+<h1>Existing Instructor Login</h1>
+
+<% if @error %>
+  <p style="color: red;">That email address and/or password is invalid!</p>
+<% end %>
+<div id = 'loginform'>
+  <form method="post" action="/instructors/login">
+    <label for "email"> Enter Your E-mail Address </label> <br>
+	  <input type = 'text' name = 'email'> <br>
+	<label for 'password' name = 'password'> Enter your password </p>
+	  <input type = 'password' name = 'password'> <br>
+	  <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token() %>' size = '65'> <br>
+  <button type = 'Log In'> Log In </button>
+  </form>
+</div>
