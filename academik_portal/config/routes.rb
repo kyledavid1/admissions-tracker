@@ -3,12 +3,18 @@ Rails.application.routes.draw do
   get '/admission_officers/login_form' => 'admission_officers#login_form'
   post '/admission_officers/login' => 'admission_officers#login'
 
+<<<<<<< HEAD
   # get '/admission_officers/student/:id' => 'admission_officers#show'
 # I want to send the admissions officer to a route similar to the above. To display student information as seen is the show.
 
   resources :admission_officers, :instructors do 
     resources :students
   end
+=======
+  get '/students/login_form' => 'students#login_form'
+  post '/students/login' => 'students#login'
+
+>>>>>>> efc1ef10097ecea25eb980aaaa42e88b475dc731
 
   resources :students
 
@@ -16,6 +22,10 @@ Rails.application.routes.draw do
   resources :instructor_questionnaires
 
   root :controller => 'static', :action => '/'
+<<<<<<< HEAD
+=======
+
+>>>>>>> efc1ef10097ecea25eb980aaaa42e88b475dc731
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,31 +1,43 @@
 class StudentsController < ApplicationController
 
-    #this page was last edited on 2/10/16
+	before_action except: [:login, :login_form] do
+		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+			redirect_to '/students/login_form'
+		end
+	end
+
+    #this page was last edited on 2/12/16
 
     def login
-    	student = Student.find_by(:email, params['email'])
+    	student_user = Student.find_by(email: params['email'])
 
-    	if user && user.authenticate(params['password'])
+    	if student_user && student_user.authenticate(params['password'])
     		#if user exists and password is legit then...
-    		session[:email] = student.email
-    		@username = session[:email]
+    		session[:user_type] = 'Student'
+    		session[:user_id] = student_user.id
+    		@student = session[:email]
 
-    		cookies[:email] = student.email
-    		render :index
+    		cookies[:email] = student_user.email
+    		redirect_to student_user
     	else
     		@error = true
-    		render :index
+    		render :login_form
     	end
     end
+  #   		Below, here's how Kyle applied this in the admissions officers controller
+  #   		if admin_user && admin_user.authenticate(params['password'])
+		# 	session[:user_name] = admin_user.email
+		# 	@admin = session[:user_name]
 
-	def student_current_user
-		#need code here to indicate that the person currently logged in is a student
-	end	
+		# 	cookies[:username] = admin_user.email
+		# 	cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
+
+		# 	render :index
+		# else
+		# 	@error = true
+		# 	render :index
 
     #
-	def student_logged_in
-		student_current_user
-	end
 
     #student actually would not be able to look at this page
 	def index
@@ -53,7 +65,7 @@ class StudentsController < ApplicationController
 	end
 
 	def create
-		Student.create(name: params[:name], email: params[:email], password: params[:password], course: params[:course], application_essay: params[:application_essay], application_status: "Phone Interview Pending" )
+		Student.create(name: params[:name], email: params[:email], phone_number: params[:phone_number], password: params[:password], course: params[:course], application_essay: params[:application_essay], application_status: "Phone Interview Pending" )
     end
 	# def create
 	# 	@student = Student.create(params["student"].permit(:name, :email, :password, :course, :application_essay))
@@ -84,7 +96,7 @@ class StudentsController < ApplicationController
     private
 
     def student_params 
-		params.require(:student).permit(:name, :email, :password_digest, :course, :application_essay, :application_status, :admissions_officer_id, :instructor_id)
+		params.require(:student).permit(:name, :email, :phone_number, :password_digest, :course, :application_essay, :application_status, :admissions_officer_id, :instructor_id)
 	end
 	# def destroy
 	# 	@student = Student.find(params[:id])

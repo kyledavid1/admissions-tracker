@@ -20,11 +20,15 @@ AoQuestionnaire.destroy_all
   Student.create(
     name: Faker::Name.name,
     email: Faker::Internet.free_email,
-    password_digest: Faker::Lorem.word,
+    password: 'student',
     course: ['WDI', 'UXDI', 'PMI'].sample,    
     application_essay: Faker::Lorem.paragraph,
     application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample,
+<<<<<<< HEAD
     phone_number: Faker::Number.number(10)
+=======
+    phone_number: Faker::PhoneNumber.phone_number
+>>>>>>> efc1ef10097ecea25eb980aaaa42e88b475dc731
   )
 end
 
@@ -32,7 +36,7 @@ end
   Instructor.create(
     name: Faker::Name.name,
     email: Faker::Internet.safe_email,
-    password_digest: Faker::Lorem.word,
+    password: 'instructor',
     course: ['WDI', 'UXDI', 'PMI'].sample    
   )
 end
@@ -41,7 +45,7 @@ end
   AdmissionOfficer.create(
     name: Faker::Name.name,
     email: Faker::Internet.safe_email,
-    password_digest: Faker::Lorem.word
+    password: 'officer'
   )
 end	
 
