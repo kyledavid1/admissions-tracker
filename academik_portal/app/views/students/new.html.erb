@@ -1,14 +1,16 @@
-<h1> New Student</h1>
+<h1> New Student Application Form</h1>
 
-Below is some stuff I was writing. I think it's wrong, so let's go with the above stuff.
+<p> Are you interested in applying for an immersive program at General Assembly? Fill out this form to be added as a new applicant! </p>
 
 
-<div id='loginform'>
+<div id='registerform'>
 	<form method='POST' action='/create'>
 		<label for "name"> Please enter your name </label> <br>
 			<input type='text' name='name'> <br> <br>
 		<label for "email"> Enter your e-mail address </label> <br>
 			<input type='text' name='email'> <br> <br>
+		<label for "phone_number"> Provide a phone number </label> <br>
+			<input type='text' name='phone_number'> <br> <br>
 		<label for 'password' name='password' > Select a password </label> <br>
 			<input type='password' name='password'> <br>
 		<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token() %>' size = '65'> <br>
@@ -23,29 +25,3 @@ Below is some stuff I was writing. I think it's wrong, so let's go with the abov
 	<button type='submit'> Submit Your Application! </button>
 	</form>
 </div>	
-
-
-<!-- <form action = '/students' method = "post">
-
-<label for="name">Full Name </label>
-<input name="student[name]" placeholder="Your Name" id="name">
-
-<label for = "email"> E-mail Address </label>
-<input name = "student[email]" placeholder = "E-mail Address" id = "email">
-
-<label for="password">Enter a new password </label>
-<input name ="student[password]" placeholder = "Password" id = "password">
-
-Please select the course you are applying for.
-<select>
-  <option value="WDI">Web Development Immersive</option>
-  <option value="PMI">Product Management Immersive</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-
-<input class="button-primary" type="submit" value="Submit">
-
-</form>
-
-:name, :email, :password, :course, :application_essay) -->
