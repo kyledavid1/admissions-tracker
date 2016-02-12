@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/admission_officers/login_form' => 'admission_officers#login_form'
   post '/admission_officers/login' => 'admission_officers#login'
 
+  get '/students/login_form' => 'students#login_form'
+  post '/students/login' => 'students#login'
+
 
   resources :students
   resources :instructors
@@ -11,8 +14,7 @@ Rails.application.routes.draw do
   resources :admission_officers
 
   root :controller => 'static', :action => '/'
-  post '/login' => 'students#login'
-  post '/create' => 'students#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
