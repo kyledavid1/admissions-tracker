@@ -21,7 +21,8 @@ class AdmissionOfficersController < ApplicationController
 		@students = Student.all
 	end
 
-	def student
+	def show
+		# @admin = AdmissionOfficer.find(params[:id])
 		@student = Student.find(params[:id])
 	end
 
