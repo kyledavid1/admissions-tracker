@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211215506) do
+ActiveRecord::Schema.define(version: 20160211224121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160211215506) do
     t.string  "password_digest"
     t.string  "course"
     t.text    "application_essay"
-    t.string  "application_status"
+    t.string  "application_status",   default: "Phone Interview Pending"
     t.integer "instructor_id"
     t.integer "admission_officer_id"
   end

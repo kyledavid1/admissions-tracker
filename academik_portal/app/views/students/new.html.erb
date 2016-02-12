@@ -3,24 +3,24 @@
 Below is some stuff I was writing. I think it's wrong, so let's go with the above stuff.
 
 
-<div id = 'loginform'>
-	<form method = 'POST' action = '/create'>
-	<label for "name"> Please enter your name </label> <br>
-	<input type = 'text' name = 'name'> <br> <br>
-	<label for "email"> Enter your e-mail address </label> <br>
-	<input type = 'text' name = 'email'> <br> <br>
-	<label type ='password' name = 'password' > Select a password </label> <br>
-	<input type = 'password_digest' name = 'password'> <br>
-	<input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token() %>' size = '65'> <br>
-	<label for 'course' name = 'course'> What course are you applying to? </label> <br>
-	<select>
-  <option value="WDI">Web Development Immersive</option>
-  <option value="PMI">Product Management Immersive</option>
-  <option value="UXDI">User Experience Development Immersive</option>
-</select> <br> <br>
-<label type = 'application_essay' name = 'application_essay'> Why do you feel that you belong at General Assembly? </label> <br>
-<textarea placeholder = "Write your response here"> </textarea> <br>
-	<button type = 'submit'> Submit Your Application! </button>
+<div id='loginform'>
+	<form method='POST' action='/create'>
+		<label for "name"> Please enter your name </label> <br>
+			<input type='text' name='name'> <br> <br>
+		<label for "email"> Enter your e-mail address </label> <br>
+			<input type='text' name='email'> <br> <br>
+		<label for 'password' name='password' > Select a password </label> <br>
+			<input type='password' name='password'> <br>
+		<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token() %>' size = '65'> <br>
+		<label for 'course' name='course'> What course are you applying to? </label> <br>
+		<select name='course'>
+  			<option value="WDI">Web Development Immersive</option>
+  			<option value="PMI">Product Management Immersive</option>
+ 			<option value="UXDI">User Experience Development Immersive</option>
+		</select> <br> <br>
+		<label type='application_essay' name='application_essay'> Why do you feel that you belong at General Assembly? </label> <br>
+		<textarea name='application_essay' placeholder="Write your response here"> </textarea> <br>
+	<button type='submit'> Submit Your Application! </button>
 	</form>
 </div>	
 

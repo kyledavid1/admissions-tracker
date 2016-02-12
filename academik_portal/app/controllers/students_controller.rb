@@ -39,6 +39,7 @@ class StudentsController < ApplicationController
 
 	#student will not be able to search for other students, only look at their own page
 	def show
+		@student = Student.find(params[:id])
 	# 	if student_logged_in
 	# 		render : 
 	# 		#students will not be able to see this, they will be redirected back to their dashboard
@@ -51,13 +52,9 @@ class StudentsController < ApplicationController
 		@student = Student.new
 	end
 
-	def student_params 
-		params.require(:student).permit(:name, :email, :password_digest, :course, :application_essay)
-	end
-
 	def create
-		Student.create(student_params)
-	end
+		Student.create(name: params[:name], email: params[:email], password: params[:password], course: params[:course], application_essay: params[:application_essay], application_status: "Phone Interview Pending" )
+    end
 	# def create
 	# 	@student = Student.create(params["student"].permit(:name, :email, :password, :course, :application_essay))
 	# 	#student parameters which are not determined by student: id, application_status, admissions_officer_id, and instructor_id
@@ -84,6 +81,11 @@ class StudentsController < ApplicationController
         redirect_to "students"
     end
 
+    private
+
+    def student_params 
+		params.require(:student).permit(:name, :email, :password_digest, :course, :application_essay, :application_status, :admissions_officer_id, :instructor_id)
+	end
 	# def destroy
 	# 	@student = Student.find(params[:id])
 	# 	@student.destroy
