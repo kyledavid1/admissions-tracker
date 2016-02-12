@@ -1,42 +1,53 @@
 class InstructorsController < ApplicationController
 
-  def login
-    admin_user = Instructor.find_by(email: params['email'])
-    if admin_user && admin_user.authenticate(params['password'])
-      session[:user_name] = admin_user.name
-      @name = sessions[:user_name]
+  # before_action except: [:login, :login_form] do
+  #   if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
+  #     redirect_to 'instructors/login_form'
+  #   end
+  # end
 
-      cookies[:name] = instructor.name
-      cookies[:age_example] = {:value => "I expire in 10 seconds", :expires => Time.now + 10}
-      render :index
+  def login
+    instructor_user = Instructor.find_by(email: params['email'])
+    
+    if instructor_user && instructor_user.authenticate(params['password'])
+      session[:user_type] = 'Instructor'
+      session[:user_id] = instructor_user.id
+      @instructor = session[:email]
+
+      cookies[:email] = instructor_user.email
+      redirect_to instructor_user
     else
       @error = true
-      render :index  
+      render :login_form 
     end  
   end
 
-  def index
-  	@students = Student.where(application_status: 'In-Person Interview')
+  # def index
+  # 	@students = Student.where(application_status: 'In-Person Interview')
+  # end
+
+  def show  
+    @instructor = Instructor.find(params[:id])
+    @students = Student.where(application_status: 'In-Person Interview')
   end
 
-  def show
-    @student = Student.find(params[:id])
+  def create
   end
 
-  def edit
-    @student = Student.find(params[:id])
-    if @student.save
-      redirect_to student_path(student.id)
-    else
-      render :edit
-    end
-  end
+  # def edit
+  #   @student = Student.find(params[:id])
+  #   if @student.save
+  #     redirect_to student_path(student.id)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def update
-    @student = Student.find(params[:id])
-  end
+  # def update
+  #   @student = Student.find(params[:id])
+  # end
 
-  def student
-  end
+  # def student
+  # end
 
 end
