@@ -1,0 +1,6 @@
+<%= form_for (@ao_questionnaire) do |x| %>
+  <%= x.text_area :course_goals, placeholder: "Course Goals" %><br>
+  <%= x.text_area :comments, placeholder: "Comments" %><br>
+  <%= x.text_area :reason_for_applying, placeholder: "Reason For Applying"%><br>
+  <%= x.submit "Add Questionnaire" %>
+<% end %>

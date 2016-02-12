@@ -1,0 +1,11 @@
+<%= form_for (@iq) do |r| %>
+  <%= r.text_field :strengths, placeholder: "Student Strengths" %><br>
+  <%= r.text_field :weaknesses, placeholder: "Student Weaknesses" %><br>
+  <p>Are they a good fit?</p><%= r.label "No" %>
+  <%= r.check_box :good_fit %>
+  <%= r.label "Yes" %>
+  <%= r.check_box :good_fit %><br>
+  
+  <%= r.text_area :comments, placeholder: "Comments"%><br>
+  <%= r.submit "Add Questionnaire" %>
+<% end %>
