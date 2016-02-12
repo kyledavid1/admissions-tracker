@@ -6,9 +6,9 @@
 
 <div id= 'loginform'>
 <form method='POST' action='/admission_officers/login'>
-	<input type='text' name='email'><br />
+	<input type='email' name='email'><br />
 	<input type='password' name='password'>
-	<input type='hidden' name='authenticity_token' value'<%= form_authenticity_token() %>' size='65'><br />
+	<input type='hidden' name='authenticity_token' value'<%= form_authenticity_token() %>' size='100'><br />
 <!-- Need the above in your form. This is apart of the has_secure_password. -->
 	<button type="submit">Log In</button>
 </form>

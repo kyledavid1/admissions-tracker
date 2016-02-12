@@ -2,11 +2,11 @@
 Commented on 2/10/16 -->
 
 
-<h3>Update this Student</h3>
+<h3>Update Admission Officer</h3>
 
-<#%= @student.errors.full_messages.to_sentence %>
+<#%= @admin_officer.errors.full_messages.to_sentence %>
 
-	<%= form_for @student, url: student_path do |form| %>
+	<%= form_for @admin_officer, url: admission_officer_path do |form| %>
 	<%= form.label :name %><br />
 	<%= form.text_field :name %><br />
 
