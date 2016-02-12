@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/students/login_form' => 'students#login_form'
   post '/students/login' => 'students#login'
 
+  get '/students/new' => 'students#new'
+  post '/students/create' => 'students#create'
+
 
   resources :students
   resources :instructors
