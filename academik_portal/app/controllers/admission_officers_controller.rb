@@ -1,6 +1,12 @@
 class AdmissionOfficersController < ApplicationController
 
 
+# before_action except: [:login, :login_form] do
+# 		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+# 			redirect_to '/students/login_form'
+# 		end
+# 	end
+
 	def index 
 		@admin_officers = AdmissionOfficer.all
 	end
