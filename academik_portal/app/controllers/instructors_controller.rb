@@ -34,14 +34,8 @@ class InstructorsController < ApplicationController
   def create
   end
 
-  # def edit
-  #   @student = Student.find(params[:id])
-  #   if @student.save
-  #     redirect_to student_path(student.id)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def edit
+  end
 
   # def update
   #   @student = Student.find(params[:id])
