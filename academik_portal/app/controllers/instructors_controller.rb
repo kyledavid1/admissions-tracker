@@ -19,15 +19,24 @@ class InstructorsController < ApplicationController
   	@students = Student.where(application_status: 'In-Person Interview')
   end
 
-  # def show
-  # 	id = params[:id]
-  # 	@student = Student.find(id)
-  # end
+  def show
+    @student = Student.find(params[:id])
+  end
 
-  # def edit
-  # end
+  def edit
+    @student = Student.find(params[:id])
+    if @student.save
+      redirect_to student_path(student.id)
+    else
+      render :edit
+    end
+  end
 
-  # def update
-  # end
+  def update
+    @student = Student.find(params[:id])
+  end
+
+  def student
+  end
 
 end
