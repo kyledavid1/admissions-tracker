@@ -24,7 +24,7 @@ AoQuestionnaire.destroy_all
     course: ['WDI', 'UXDI', 'PMI'].sample,    
     application_essay: Faker::Lorem.paragraph,
     application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample,
-    phone_number: Faker::phone_number
+    phone_number: Faker::Number.number(10)
   )
 end
 

@@ -2,18 +2,18 @@ class AdmissionOfficersController < ApplicationController
 
 	def login
 		admin_user = AdmissionOfficer.find_by(email: params['email'])
-
-		if admin_user && admin_user.authenticate(params['password'])
+#getting error of invalid hash somewhere within password_digest. Check and re-check names to make sure everything matches.
+		if admin_user && admin_user.authenticate(params['password_digest'])
 			session[:user_name] = admin_user.email
 			@admin = session[:user_name]
 
 			cookies[:username] = admin_user.email
 			cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
 
-			render :admission_officers
+			redirect_to :admission_officers
 		else
 			@error = true
-			render :index
+			render :login_form
 		end
 	end
 
