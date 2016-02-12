@@ -1,13 +1,13 @@
 <p> this is the students' index page. It is not visible to students. It is only visible to admissions and instructors </p>
 
-<p> Here is the login form test.</p>
+<p> Here is the login form test. it will lead to the student's individual show page</p>
 
 <div id = 'loginform'>
 	<form method = 'POST' action = '/login'>
-	<p> Enter Your Name </p>
+	<p> Enter Your E-mail Address </p>
 	<input type = 'text' name = 'email'> <br>
 	<p> Enter your password </p>
-	<input type = 'password' name = 'password'> <br>
+	<input type = 'password_digest' name = 'password'> <br>
 	<input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token() %>' size = '65'> <br>
 	<button type = 'submit'> Log In </button>
 	</form>
