@@ -30,10 +30,11 @@ class AdmissionOfficersController < ApplicationController
 	end
 
 	def show
+		# I also want to view all the students by clicking on a link.
 		# I want to display students that belong to their particular admin officer. Reference student to admission_officer_id? Admission officer id is currently nil. We need to assign that a value before we can associate that ao with students.
 		@admin_officer = AdmissionOfficer.find(params[:id])
-		# @students = Student.where(admission_officer: display the students that belong to the admin officer.)
-		@students = Student.all
+		@students = Student.where(application_status: 'Phone Interview Pending')#display the students that belong to the admin officer.)
+		# @students = Student.all
 		# if @student.id == @admin_officer
 		# 	@students
 		# else
@@ -46,9 +47,10 @@ class AdmissionOfficersController < ApplicationController
 	end
 
 	def create
-		@admin_officer = AdmissionOfficer.create(params['admin_officer'].permit(:name, :email))
+		#creating a new officer is giving the error "undefined method permit on nil class". 
+		@admin_officer = AdmissionOfficer.create(params["admission_officers"].permit(:name, :email, :password))
 		if @admin_officer.save
-			redirect_to admission_officer_path(@admin_officer)
+			redirect_to admission_officers_path
 		else
 			render :new_admission_officer
 		end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get '/admission_officers/login_form' => 'admission_officers#login_form'
   post '/admission_officers/login' => 'admission_officers#login'
+  post '/create' => 'admission_officers#create'
 
 
   resources :admission_officers, :instructors do 
