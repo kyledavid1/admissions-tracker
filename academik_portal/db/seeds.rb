@@ -25,6 +25,7 @@ AoQuestionnaire.destroy_all
     application_essay: Faker::Lorem.paragraph,
     application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample,
     phone_number: Faker::Number.number(10)
+    # admission_officer_id: rand(1..15)
   )
 end
 
