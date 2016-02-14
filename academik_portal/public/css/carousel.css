@@ -7,6 +7,34 @@ body {
   color: #5a5a5a;
 }
 
+div.col-lg-4{
+  background: black;
+  max-height: 280px;
+}
+
+h1{
+  font-family: Mesquite;
+  background: rgba(0,0,0,0.5);
+}
+
+h2{
+  font-family: Mesquite;
+  text-decoration: underline;
+}
+
+.carousel-caption > p{
+  color: white;
+  background: rgba(0,0,0,0.5);
+}
+
+
+div.item.active{
+  background: white;
+}
+
+.row > .col-lg-4 > p{
+  color: white;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -57,7 +85,7 @@ body {
 
 
 img.img-circle-instructor, img.img-circle-officer, img.img-circle-student  
-{border-radius: 50%;}
+{border-radius: 50%; padding-top: 8px;}
 
 
 
