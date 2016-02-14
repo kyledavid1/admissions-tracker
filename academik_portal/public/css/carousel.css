@@ -47,6 +47,18 @@ div.item.active{
   font-weight: bold;
 }
 
+.center-block-1, .center-block-3{
+  height: 500px;
+}
+
+.center-block-2{
+   height: 150px;
+  width: 800px;
+  position: relative;
+  top: 130px;
+
+}
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
