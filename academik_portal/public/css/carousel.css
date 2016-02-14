@@ -8,6 +8,19 @@ body {
   background-image: url('/gears.jpg');
 }
 
+a{
+  color: rgba(240, 72, 72, 0.75);
+  font-size: 18px;
+}
+
+.navbar-header:active {     
+  background: red;
+}
+
+div.container.marketing {
+  background: rgba(0,0,0,0.25);
+}
+
 div.col-lg-4{
   background: black;
   max-height: 280px;
@@ -22,6 +35,10 @@ h1{
 h2{
   font-family: Mesquite;
   text-decoration: underline;
+}
+
+p.lead{
+  color: black;
 }
 
 .carousel-caption > p{
@@ -55,7 +72,7 @@ div.item.active{
    height: 150px;
   width: 800px;
   position: relative;
-  top: 130px;
+  top: 80px;
 
 }
 
