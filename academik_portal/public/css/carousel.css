@@ -5,6 +5,7 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-image: url('/gears.jpg');
 }
 
 div.col-lg-4{
@@ -14,6 +15,7 @@ div.col-lg-4{
 
 h1{
   font-family: Mesquite;
+  font-weight: bold;
   background: rgba(0,0,0,0.5);
 }
 
@@ -34,6 +36,15 @@ div.item.active{
 
 .row > .col-lg-4 > p{
   color: white;
+}
+
+.featurette-heading{
+  color: black;
+}
+
+.text-muted{
+  color: rgba(240, 72, 72, 0.75);
+  font-weight: bold;
 }
 
 /* CUSTOMIZE THE NAVBAR
@@ -120,7 +131,7 @@ img.img-circle-instructor, img.img-circle-officer, img.img-circle-student
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 428px;
+  height: 475px;
 }
 
 
