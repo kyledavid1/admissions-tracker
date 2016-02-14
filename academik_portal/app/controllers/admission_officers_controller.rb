@@ -2,8 +2,8 @@ class AdmissionOfficersController < ApplicationController
 
 
 # before_action except: [:login, :login_form] do
-# 		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
-# 			redirect_to '/students/login_form'
+# 		if current_user.nil? || (current_user.is_a?(AdmissionOfficer) && params[:id].to_i != current_user.id)
+# 			redirect_to admission_officers_login_form_path
 # 		end
 # 	end
 
@@ -47,28 +47,34 @@ class AdmissionOfficersController < ApplicationController
 	end
 
 	def create
-		#creating a new officer is giving the error "undefined method permit on nil class". 
-		@admin_officer = AdmissionOfficer.create(params["admission_officers"].permit(:name, :email, :password))
+		#this is not saving anything to the db.
+		@admin_officer = AdmissionOfficer.create(admission_officer_params)
 		if @admin_officer.save
+			flash[:success] = "Admission Officer Created"
 			redirect_to admission_officers_path
 		else
-			render :new_admission_officer
+			render :new
 		end
 	end
 
 	def edit
 		@admin_officer = AdmissionOfficer.find(params[:id])
+	end
+
+	def update
+		@admin_officer = AdmissionOfficer.find(params[:id])
+		@admin_officer.update(admission_officer_params)#name: params["name"], email: params["email"], password: params["password"])
 		if @admin_officer.save
-			redirect_to admission_officer_path(admin_officer.id)
+			redirect_to admission_officer_path		
 		else
 			render :edit
 		end
 	end
 
-	def update
-		@admin_officer = AdmissionOfficer.find(params[:id])
-		@admin_officer.update(name: params["admission_officer"]["name"], email: params["admission_officer"]["email"])
-		redirect_to admission_officer_path
+	private
+
+	def admission_officer_params
+		params.require(:admission_officer).permit(:name, :email, :password)
 	end
 
 end
