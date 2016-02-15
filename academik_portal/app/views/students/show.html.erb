@@ -3,10 +3,28 @@
 
 
 
-Name: <%= @student.name %> <br>
+<h1> Name: <%= @student.name %> </h1> <br>
 E-mail: <%= @student.email %> <br>
 Course: <%= @student.course %> <br>
 Phone Number: <%= @student.phone_number %> <br>
 Application Essay: <%= @student.application_essay %><br>
 Application Status: <%= @student.application_status %> <br>
 
+
+The code here is supposed to read:
+if the current user is an admissions officer or an instructor, they should be able to see extra things. Either they would see forms or buttons that link to pages to create forms.
+
+<h2> Phone Interview </h2>
+<p> Scheduled by Admissions Officer as the first step of the process </p>
+
+
+<a href = "/ao_questionnaires/new"><button> Schedule phone interview </button> </a> <br> 
+
+Once the phone interview has been completed, I would like the contents of the interview to append themselves to the student's profile. I think we can use jQuery for that. 
+
+The in-person interview stuff below won't appear until the phone interview is completed. We can probably use jQuery for that too. 
+
+<h2> In-Person Interview </h2>
+<p> Scheduled by Instructor once the applicant has cleared the Phone Interview. </p>
+
+<a href = "/instructors_questionnaires/new"><button> Schedule in-person interview </button> </a> <br> 
