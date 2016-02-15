@@ -4,6 +4,16 @@
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 
+<!-- Possibly make this go to another page? Currently only displays at the top of the page and under the first student. -->
+
+<div type="submit" class="start">
+	<div id="timer">
+		Phone Screen Timer<span class="minutes"></span><br />
+	</div>
+
+	<h3><button>Start Timer</button></h3>
+</div>
+
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>
@@ -13,11 +23,6 @@
 <h3>Course: <%= s.course %></h3>
 <h3>Application Essay: <%= s.application_essay %></h3>
 <h3>Application Status: <%= s.application_status %></h3>
-
-
-<div type="submit" class="start">
-	<h3><button>Start Timer</button></h3>
-</div>
 
 ----------------------------------------------------------------------------
 
