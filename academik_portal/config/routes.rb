@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post '/admission_officers/login' => 'admission_officers#login'
   post '/create' => 'admission_officers#create'
 
+  get '/instructors/login_form' => 'instructors#login_form'
+  post '/instructors/login' => 'instructors#login'
 
   resources :admission_officers, :instructors do 
     resources :students
@@ -12,12 +14,7 @@ Rails.application.routes.draw do
   get '/students/login_form' => 'students#login_form'
   post '/students/login' => 'students#login'
 
-  get '/instructors/login_form' => 'instructors#login_form'
-  post '/instructors/login' => 'instructors#login'
-
-
   resources :students
-
   resources :ao_questionnaires
   resources :instructor_questionnaires
 

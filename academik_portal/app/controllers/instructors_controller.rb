@@ -1,10 +1,10 @@
 class InstructorsController < ApplicationController
 
-  # before_action except: [:login, :login_form] do
-  #   if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
-  #     redirect_to 'instructors/login_form'
-  #   end
-  # end
+  before_action except: [:login, :login_form] do
+    if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
+      redirect_to 'instructors/login_form'
+    end
+  end
 
   def login
     instructor_user = Instructor.find_by(email: params['email'])
@@ -22,9 +22,10 @@ class InstructorsController < ApplicationController
     end  
   end
 
-  # def index
-  # 	@students = Student.where(application_status: 'In-Person Interview')
-  # end
+  def index
+  	@instructors = Instructor.all
+    render :instructors
+  end
 
   def show  
     @instructor = Instructor.find(params[:id])
