@@ -52,6 +52,11 @@ p.lead{
 
 #loginform{
   border: 3px dotted black;
+  width: 550px;
+  padding-left: 180px;
+  position: relative;
+  left: 350px;
+  background: rgba(0,0,45,0.25);
 }
 
 
