@@ -1,47 +1,72 @@
 class AdmissionOfficersController < ApplicationController
 
+
+# before_action except: [:login, :login_form] do
+# 		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+# 			redirect_to '/students/login_form'
+# 		end
+# 	end
+
+	def index 
+		@admin_officers = AdmissionOfficer.all
+	end
+
 	def login
 		admin_user = AdmissionOfficer.find_by(email: params['email'])
-
+#getting error of invalid hash somewhere within password_digest. Check and re-check names to make sure everything matches.
 		if admin_user && admin_user.authenticate(params['password'])
-			session[:user_name] = admin_user.email
-			@admin = session[:user_name]
+			session[:admin_name] = admin_user.email
+			session[:user_id] = admin_user.id
+			@admin = session[:email]
 
-			cookies[:username] = admin_user.email
+			cookies[:email] = admin_user.email
 			cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
 
-			render :index
+			redirect_to admission_officer_path(admin_user)
 		else
 			@error = true
-			render :index
+			render :login_form
 		end
 	end
 
-	def index 
-		@students = Student.all
-	end
-
 	def show
-		@student = Student.find(params[:id])
+		# I want to display students that belong to their particular admin officer. Reference student to admission_officer_id? Admission officer id is currently nil. We need to assign that a value before we can associate that ao with students.
+		@admin_officer = AdmissionOfficer.find(params[:id])
+		# @students = Student.where(admission_officer: display the students that belong to the admin officer.)
+		@students = Student.all
+		# if @student.id == @admin_officer
+		# 	@students
+		# else
+		# 	render :admission_officer_path
+		# end
 	end
 
 	def new
+		@admin_officer = AdmissionOfficer.new
 	end
 
 	def create
+		@admin_officer = AdmissionOfficer.create(params['admin_officer'].permit(:name, :email))
+		if @admin_officer.save
+			redirect_to admission_officer_path(@admin_officer)
+		else
+			render :new_admission_officer
+		end
 	end
 
 	def edit
-		@student = Student.find(params[:id])
-		if @student.save
-			redirect_to student_path(student.id)
+		@admin_officer = AdmissionOfficer.find(params[:id])
+		if @admin_officer.save
+			redirect_to admission_officer_path(admin_officer.id)
 		else
 			render :edit
 		end
 	end
 
 	def update
-		@student = Student.find(params[:id])
+		@admin_officer = AdmissionOfficer.find(params[:id])
+		@admin_officer.update(name: params["admission_officer"]["name"], email: params["admission_officer"]["email"])
+		redirect_to admission_officer_path
 	end
 
 end
