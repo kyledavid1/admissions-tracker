@@ -1,7 +1,7 @@
-<h1>Welcome Instructor! Select a student for an in-person interview!</h1>
+<h1>List of General Assembly Instructors</h1>
 
-<% @students.each do |student| %>
-	<h2><%= link_to student.name, student_path(student.id) %></h2>
-	<h3><%= mail_to student.email %></h3>
-	------------------------------------------------------------
-<% end %>	
+<% @instructors.each do |i| %>
+  <h2><%= link_to i.name, instructor_path(i.id) %></h2>
+  <h3><%= i.course %></h3>
+  <h3><%= mail_to i.email %></h3>
+<% end %>
