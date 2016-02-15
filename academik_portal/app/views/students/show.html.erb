@@ -18,17 +18,22 @@ Application Status: <%= @student.application_status %> <br>
 The code here is supposed to read:
 if the current user is an admissions officer or an instructor, they should be able to see extra things. Either they would see forms or buttons that link to pages to create forms.
 
+<% if session[:user_type] == 'Instructor' %>
+
 <h2> Phone Interview </h2>
-<p> Scheduled by Admissions Officer as the first step of the process </p>
+<p> Scheduled by Admissions Officer as the first step of the process </p
 
 
-<a href = "/ao_questionnaires/new"><button> Schedule phone interview </button> </a> <br> 
+<a href = "/ao_questionnaires/new"><button> Phone interview Questionnaire </button> </a> <br> 
 
-Once the phone interview has been completed, I would like the contents of the interview to append themselves to the student's profile. I think we can use jQuery for that. 
-
-The in-person interview stuff below won't appear until the phone interview is completed. We can probably use jQuery for that too. 
+<p> Course Goals: <%= @ao_questionnaire.course_goals %> </p>
 
 <h2> In-Person Interview </h2>
 <p> Scheduled by Instructor once the applicant has cleared the Phone Interview. </p>
 
-<a href = "/instructors_questionnaires/new"><button> Schedule in-person interview </button> </a> <br> 
+<a href = "/instructor_questionnaires/new">Schedule in-person interview </a> <br> 
+<% else %>
+
+<p> Nothing else here. </p>
+
+<% end %>

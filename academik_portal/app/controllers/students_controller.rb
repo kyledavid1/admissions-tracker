@@ -3,11 +3,12 @@ class StudentsController < ApplicationController
 # GET /users
   # GET /users.json
 
-	before_action except: [:login, :login_form, :new, :create] do
-		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
-			redirect_to '/students/login_form'
-		end
-	end
+
+	# before_action except: [:login, :login_form, :new, :create] do
+	# 	if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+	# 		redirect_to '/students/login_form'
+	# 	end
+	# end
 
     #this page was last edited on 2/12/16
 
@@ -35,6 +36,7 @@ class StudentsController < ApplicationController
 	#student will not be able to search for other students, only look at their own page
 	def show
 		@student = Student.find(params[:id])
+		@ao_questionnaire = AoQuestionnaire.new
 		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
 	# 	if student_logged_in
 	# 		render : 

@@ -14,13 +14,10 @@ Rails.application.routes.draw do
   get '/students/login_form' => 'students#login_form'
   post '/students/login' => 'students#login'
 
-<<<<<<< HEAD
+
   get '/students/new' => 'students#new'
   post '/students/create' => 'students#create'
 
-
-=======
->>>>>>> 0ca9252424eec732b0be9b3a61282b0521b7fe68
   resources :students
   resources :ao_questionnaires
   resources :instructor_questionnaires
