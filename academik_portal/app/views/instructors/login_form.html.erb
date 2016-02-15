@@ -1,3 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+	<title>Login</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link href="/css/carousel.css" rel="stylesheet">
+   <style>
+
+h1{
+   color: white;
+}
+
+.input-email, .input-password{
+	font-size: 18px;
+	color: black;
+	padding-top: 8px;
+}
+
+.login-button{
+	color: white;
+	background: black;
+	position: relative;
+	left: 65px;
+}
+
+.login-button:active{
+	background: red;
+}
+
+
+
+
+
+
+  </style>
+
+</head>
+<body>
+
+ <div class="header-logo-bar">
+       <img class="admissions-logo" src="/admissions_logo_bar.png">
+    </div>
+
+      <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">GA Admissions Portal</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Admissions Officers</a></li>
+                    <li><a href="#">Instructors</a></li>
+                    <!-- <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li> -->
+                  </ul>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+
+
+
+
 <h1>Existing Instructor Login</h1>
 
 <% if @error %>
@@ -5,11 +99,11 @@
 <% end %>
 <div id = 'loginform'>
   <form method="post" action="/instructors/login">
-    <label for "email"> Enter Your E-mail Address </label> <br>
+    <label for "email" class="input-email"> Enter Your E-mail Address: </label> <br>
 	  <input type = 'text' name = 'email'> <br>
-	<label for 'password' name = 'password'> Enter your password </p>
+	<label for 'password' name = 'password' class="input-password"> Enter your password: </p>
 	  <input type = 'password' name = 'password'> <br>
 	  <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token() %>' size = '65'> <br>
-  <button type = 'Log In'> Log In </button>
+  <button type = 'Log In' class="login-button"> Log In </button>
   </form>
 </div>

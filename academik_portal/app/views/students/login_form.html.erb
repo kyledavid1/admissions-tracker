@@ -20,11 +20,14 @@ h1{
 .input-email, .input-password{
 	font-size: 18px;
 	color: black;
+	padding-top: 8px;
 }
 
 .login-button{
 	color: white;
 	background: black;
+	position: relative;
+	left: 65px;
 }
 
 .login-button:active{
@@ -91,9 +94,9 @@ h1{
 
 <div id = 'loginform'>
 	<form method="post" action="/students/login">
-		<label for "email" class="input-email"> Enter Your E-mail Address </label> <br>
+		<label for "email" class="input-email"> Enter Your E-mail Address: </label> <br>
 			<input type = 'text' name = 'email'> <br>
-		<label for 'password' name = 'password' class="input-password"> Enter your password </p>
+		<label for 'password' name = 'password' class="input-password"> Enter your password: </p>
 			<input type = 'password' name = 'password'> <br>
 			<input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token() %>' size = '65'> <br>
 	<button type = 'Log In' class="login-button"> Log In </button>
