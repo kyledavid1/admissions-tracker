@@ -1,10 +1,10 @@
 
-
 <h1>Welcome <%= @admin_officer.name %></h1>
 
 <h4><%= link_to "View All Admissions Officers", admission_officers_path %></h4>
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
-=======
+
+
 <h1>Welcome <%= @admin_officer.name %></h1>
 <!-- <h2><%#= @admin_officer.email %></h2>
  -->
@@ -12,15 +12,31 @@
     <h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 
+
+
+<!-- Possibly make this go to another page? Currently only displays at the top of the page and under the first student. -->
+
+
+	<div type="submit" class="start">
+		<div id="timer">
+			Phone Screen Timer<span class="minutes"></span><br />
+	</div>
+
+	<h3><button>Start Timer</button></h3>
+</div>
+<div type="submit" class="end">
+<h3><button>End Timer</button></h3>
+</div>
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>
 <h3>Student Name: <%= link_to s.name, student_path(s.id) %></h3>
 <h3>Email: <%= s.email %></h3>
-<h3>Phone <%= s.phone_number %></h3>
+<h3>Phone: <%= s.phone_number %></h3>
 <h3>Course: <%= s.course %></h3>
 <h3>Application Essay: <%= s.application_essay %></h3>
 <h3>Application Status: <%= s.application_status %></h3>
+
 
 <div type="submit" class="start">
 
@@ -30,15 +46,16 @@
 ----------------------------------------------------------------------------
 
 <% end %>
-=======
+
     <h3><button>Start Timer</button></h3>
 </div>
 
 
 ----------------------------------------------------------------------------
 
+----------------------------------------------------------------------------
 
+<% end %>
 
-=======
 
 
