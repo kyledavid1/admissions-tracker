@@ -1,0 +1,33 @@
+<h1>New Admissions Officer Form</h1>
+<!-- Get this to work for adding new admission officers -->
+<h3><%= @admin_officer.errors.full_messages.to_sentence %></h3>
+
+<!-- <div id='admission_officer'>
+	<form method='POST' action='/create'>
+		<label for "name">Name </label> <br>
+			<input type='text' name='admission_officer[name]'> <br> <br>
+		<label for 'email'>Email</label> <br>
+			<input type='text' name='email'> <br> <br>
+		<label for 'password' name='password'>Password </label> <br>
+			<input type='password' name='password'> <br>
+		<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token() %>' size = '65'> <br>
+		<button type='submit'>Submit New Admissions Officer</button>
+	</form>
+</div> -->
+
+<%= form_for @admin_officer, url: admission_officers_path do |form| %>
+
+	<%= form.label :name %><br />
+	<%= form.text_field :name %><br />
+
+	<%= form.label :email %><br />
+	<%= form.text_field :email %><br />
+
+	<%= form.label :password %><br />
+	<%= form.password_field :password %><br />
+
+	<%= form.submit "Submit New Admissions Officer" %>
+	<% end %>
+
+
+

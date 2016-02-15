@@ -5,15 +5,106 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-image: url('/gears.jpg');
 }
 
+a{
+  color: rgba(240, 72, 72, 0.75);
+  font-size: 18px;
+}
+
+
+
+.navbar-header:active {     
+  background: red;
+}
+
+div.container.marketing {
+  background: rgba(0,0,0,0.25);
+}
+
+div.col-lg-4{
+  background: black;
+  max-height: 280px;
+}
+
+h1{
+  font-family: Mesquite;
+  font-weight: bold;
+  background: rgba(0,0,0,1);
+  padding: 5px;
+}
+
+h2{
+  font-family: Mesquite;
+  text-decoration: underline;
+}
+
+p.lead{
+  color: black;
+}
+
+.carousel-caption > p{
+  color: white;
+  background: rgba(0,0,0,1);
+  padding: 10px;
+}
+
+#loginform{
+  border: 3px dotted black;
+}
+
+
+div.item.active{
+  background: white;
+}
+
+.row > .col-lg-4 > p{
+  color: white;
+}
+
+.featurette-heading{
+  color: black;
+}
+
+.text-muted{
+  color: rgba(240, 72, 72, 0.75);
+  font-weight: bold;
+}
+
+.center-block-1, .center-block-3{
+  height: 500px;
+}
+
+.center-block-2{
+   height: 150px;
+  width: 800px;
+  position: relative;
+  top: 80px;
+
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
+
+.header-logo-bar > .admissions-logo{
+  width: 100%;
+  height: 150px;
+}
+
+
+.header-logo-bar > .admissions-logo > img{
   position: absolute;
+  top: 0;
+  height: auto;
+}
+/*NYC Skyline image taken from http://blogs.oregonstate.edu/
+     singorangeny2013/files/2013/04/BigAppleGraphic2.jpg */
+
+.navbar-wrapper {
+  position: relative;
   top: 0;
   right: 0;
   left: 0;
@@ -24,14 +115,27 @@ body {
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+  width: 100%;
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;
   padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .navbar-wrapper .navbar .container {
   width: auto;
 }
+
+.navbar-nav a{
+  font-size: 18px;
+}
+
+
+img.img-circle-instructor, img.img-circle-officer, img.img-circle-student  
+{border-radius: 50%; padding-top: 8px;}
+
+
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -64,7 +168,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 428px;
+  height: 475px;
 }
 
 
@@ -77,6 +181,8 @@ body {
   margin-bottom: 20px;
   text-align: center;
 }
+
+
 .marketing h2 {
   font-weight: normal;
 }

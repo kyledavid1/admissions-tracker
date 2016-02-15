@@ -33,6 +33,9 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
+    <div class="header-logo-bar">
+       <img class="admissions-logo" src="/admissions_logo_bar.png">
+    </div>
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -53,16 +56,16 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Students</a></li>
-                    <li><a href="#">Admissions Officers</a></li>
-                    <li><a href="#">Instructors</a></li>
+                    <li><a href="/students/login_form">Students</a></li>
+                    <li><a href="/admission_officers/login_form">Admissions Officers</a></li>
+                    <li><a href="/instructors/login_form">Instructors</a></li>
                     <!-- <li role="separator" class="divider"></li>
                     <li class="dropdown-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li> -->
                   </ul>
                 </li>
-                <li><a href="#about">About</a></li>
+                <li><a href="/about">About</a></li>
                 <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
               </ul>
             </div>
@@ -84,7 +87,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="/class_photo.jpg" alt="First slide">
+          <img class="first-slide" src="/wdi.png" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Web Development Immersive</h1>
@@ -94,7 +97,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="/class_photo.jpg" alt="Second slide">
+          <img class="second-slide" src="/uxd.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>User Experience Design Immersive</h1>
@@ -104,7 +107,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="/class_photo.jpg" alt="Third slide">
+          <img class="third-slide" src="/pmi.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Product Management Immersive</h1>
@@ -134,22 +137,22 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle-student" src="/student.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Returning Applicants</h2>
           <p>Are you an aspiring General Assembly student? See what the status of your current application is.</p>
-          <p><a class="btn btn-danger" href="#" role="button">Sign In &raquo;</a></p>
+          <p><a class="btn btn-danger" href="/students/login_form" role="button">Sign In &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle-officer" src="/admission_officer.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Admissions Officers</h2>
           <p>See the most recent list of aspiring GA students and schedule phone screeners.</p>
-          <p><a class="btn btn-danger" href="#" role="button">Sign In &raquo;</a></p>
+          <p><a class="btn btn-danger" href="/admission_officers/login_form" role="button">Sign In &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle-instructor" src="/instructor.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Instructors</h2>
           <p>See which aspiring GA students have completed their phone screening and are ready for an in-person interview.</p>
-          <p><a class="btn btn-danger" href="#" role="button">Sign In &raquo;</a></p>
+          <p><a class="btn btn-danger" href="/instructors/login_form" role="button">Sign In &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -160,11 +163,11 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Unleash your potential | <span class="text-muted">Take the first step with GA.</span></h2>
+          <p class="lead">If you have the will to succeed, General Assembly can help you move forward. We welcome students who are motivated to achieve remarkable things, whether you are just beginning to shape your understanding of development and design, or are building on your knowledge and experience to advance your career, we offer an environment that is academically challenging, supportive, and rich in opportunities.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block-1" src="/passionate_students.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -172,11 +175,11 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Fund your future | <span class="text-muted">Need payment assistance?</span></h2>
+          <p class="lead"> Our financing options allow you to focus on your goals instead of the barriers that keep you from reaching them.</p>
         </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <div class="col-md-5 col-md-pull-7" height="300" width="800">
+          <img class="featurette-image img-responsive center-block-2" src="/finance.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -184,11 +187,11 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Campus Location | <span class="text-muted">Please come visit!</span></h2>
+          <p class="lead">Our beautiful location in the historic Flatiron District is easily accessible by taking the N or R train to 23rd street, or any of the N/Q/R/4/5/6 trains to Union Square, only a few blocks away | <span class="text-muted">10 East 21st Street, 3rd Floor, New York, NY 10010, USA.</span></p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block-3" src="/flatiron.jpg" alt="Generic placeholder image">
         </div>
       </div>
 

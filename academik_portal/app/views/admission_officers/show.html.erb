@@ -1,8 +1,44 @@
-<h1>This Page works too</h1>
+<<<<<<< HEAD
 
-<h1><%= @student.name %></h1> -->
+<h1>Welcome <%= @admin_officer.name %></h1>
 
-<!-- Uncomment this when we add data. 
-Made on 2/10/16 -->
-<h2>Phone: <%= @student.phone %></h2>
-<h2>Email: <%= @student.email %></h2>
+<h4><%= link_to "View All Admissions Officers", admission_officers_path %></h4>
+	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
+=======
+<h1>Welcome <%= @admin_officer.name %></h1>
+<!-- <h2><%#= @admin_officer.email %></h2>
+ -->
+<h4><%= link_to "View All Admissions Officers", admission_officers_path %></h4>
+    <h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
+>>>>>>> 3997c84f22e989c7bc86c9cda9e835cce4f27c93
+
+----------------------------------------------------------------------------
+<!-- Shows all students belonging to their admissions officer -->
+<% @students.each do |s| %>
+<h3>Student Name: <%= link_to s.name, student_path(s.id) %></h3>
+<h3>Email: <%= s.email %></h3>
+<h3>Phone <%= s.phone_number %></h3>
+<h3>Course: <%= s.course %></h3>
+<h3>Application Essay: <%= s.application_essay %></h3>
+<h3>Application Status: <%= s.application_status %></h3>
+
+<div type="submit" class="start">
+<<<<<<< HEAD
+	<h3><button>Start Timer</button></h3>
+</div>
+
+----------------------------------------------------------------------------
+
+<% end %>
+=======
+    <h3><button>Start Timer</button></h3>
+</div>
+>>>>>>> 3997c84f22e989c7bc86c9cda9e835cce4f27c93
+
+----------------------------------------------------------------------------
+
+<<<<<<< HEAD
+
+=======
+<% end %>
+>>>>>>> 3997c84f22e989c7bc86c9cda9e835cce4f27c93

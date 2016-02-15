@@ -2,21 +2,31 @@ Rails.application.routes.draw do
 
   get '/admission_officers/login_form' => 'admission_officers#login_form'
   post '/admission_officers/login' => 'admission_officers#login'
+  post '/create' => 'admission_officers#create'
+
+  get '/instructors/login_form' => 'instructors#login_form'
+  post '/instructors/login' => 'instructors#login'
+
+  resources :admission_officers, :instructors do 
+    resources :students
+  end
 
   get '/students/login_form' => 'students#login_form'
   post '/students/login' => 'students#login'
 
+<<<<<<< HEAD
   get '/students/new' => 'students#new'
   post '/students/create' => 'students#create'
 
 
+=======
+>>>>>>> 0ca9252424eec732b0be9b3a61282b0521b7fe68
   resources :students
-  resources :instructors
   resources :ao_questionnaires
   resources :instructor_questionnaires
-  resources :admission_officers
 
   root :controller => 'static', :action => '/'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -72,4 +82,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
