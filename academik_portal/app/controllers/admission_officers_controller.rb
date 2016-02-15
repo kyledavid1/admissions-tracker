@@ -6,7 +6,7 @@ class AdmissionOfficersController < ApplicationController
 # 			redirect_to admission_officers_login_form_path
 # 		end
 # 	end
-
+#when uncommented this forces me to login again even after I login.
 	def index 
 		@admin_officers = AdmissionOfficer.all
 	end

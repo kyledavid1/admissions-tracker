@@ -1,7 +1,6 @@
 
 <h1>Welcome <%= @admin_officer.name %></h1>
-<!-- <h2><%#= @admin_officer.email %></h2>
- -->
+
 <h4><%= link_to "View All Admissions Officers", admission_officers_path %></h4>
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
@@ -10,6 +9,7 @@
 <% @students.each do |s| %>
 <h3>Student Name: <%= link_to s.name, student_path(s.id) %></h3>
 <h3>Email: <%= s.email %></h3>
+<h3>Phone <%= s.phone_number %></h3>
 <h3>Course: <%= s.course %></h3>
 <h3>Application Essay: <%= s.application_essay %></h3>
 <h3>Application Status: <%= s.application_status %></h3>
