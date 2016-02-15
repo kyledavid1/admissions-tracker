@@ -34,6 +34,11 @@ h1{
 	background: red;
 }
 
+.text-muted{
+  color: rgba(240, 72, 72, 0.75);
+  font-weight: bold;
+}
+
 
 
 
@@ -92,7 +97,7 @@ h1{
 
 
 
-<h1>Existing Instructor Login</h1>
+<h1>Instructor <span class="text-muted"> / Login</span></h1>
 
 <% if @error %>
   <p style="color: red;">That email address and/or password is invalid!</p>
