@@ -23,7 +23,7 @@ AoQuestionnaire.destroy_all
     password: 'student',
     course: ['WDI', 'UXDI', 'PMI'].sample,    
     application_essay: Faker::Lorem.paragraph,
-    application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample,
+    application_status: ['Phone Interview Pending', 'Phone Interview Scheduled', 'In-Person Interview Pending', 'In-Person Interview Scheduled', 'Interviews Completed', 'Accepted', "Rejected"].sample,
     phone_number: Faker::Number.number(10)
     # admission_officer_id: rand(1..15)
   )

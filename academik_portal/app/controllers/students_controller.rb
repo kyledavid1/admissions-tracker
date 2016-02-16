@@ -77,19 +77,21 @@ class StudentsController < ApplicationController
 		end
     end
 
-
+    def edit
+    	@student = Student.find(params[:id])
+    end
 
 	def update
-		@id = params[:id].to_i
+		@id = params[:id]
 		@student = Student.find(@id)
         if session[:user_type] == 'Student'
         	@student.update(student_params)
         elsif session[:user_type] == 'Admission Officer'
-        	@student.update_attributes!(:application_status => "Phone Interview Scheduled", :admission_officer_id => session[:user_id])
+        	@student.update_attributes(application_status: "Phone Interview Scheduled", admission_officer_id: session[:user_id])
         else session[:user_type] == 'Instructor'
-        	@student.update_attributes!(:application_status => "In-Person Interview Scheduled", :instructor_id => session[:user_id])
-        end	
-        redirect back
+        	@student.update_attributes(application_status: "In-Person Interview Scheduled", instructor_id: session[:user_id])
+        	redirect_to instructor_path(session[:user_id])
+        end
     end
 
     # def schedule

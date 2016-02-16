@@ -20,17 +20,17 @@ if the current user is an admissions officer or an instructor, they should be ab
 	<a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
 <% elsif session[:user_type] == 'Instructor' %>
 	<h2>Instructors</h2>
-	<%= link_to "Schedule An In-Person Interview", {:controller => "students", :action => "update", :id => @id} %>
+	<%= form_for @student, method: :patch do |f| %>
+		<%= f.hidden_field :application_status, value: @student.application_status %>
+		<%= f.hidden_field :instructor_id, value: @student.instructor_id %>
+		<%= f.submit 'Schedule An In-Person Interview' %>
+	<% end %>
+	
 	<!-- <a href="/students/<%=@id%>/edit"><button>Schedule An In-Person Interview</button></a><br> --> 
 <% else %>
-<<<<<<< HEAD
 	<p>PLACEHOLDER: Nothing else here.</p>
 <% end %>
-=======
-
-<p> Nothing else here. </p>
-
-<% end %>
-
-<a href = "/students/logout">Logout</a>
->>>>>>> 2e368ae044b931cee6f981225f926979813a12ca
+<br>
+<% if session[:user_type] == 'Student' %>
+	<a href = "/students/logout">Logout</a>
+<% end %>	
