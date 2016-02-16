@@ -1,19 +1,19 @@
 <% if @students_scheduled.any? %>	
-	<h1>In-Person Interviews Scheduled With <%= @instructor.name %></h1>
+  <h1>In-Person Interviews Scheduled With <%= @instructor.name %></h1>
 
-	<% @students_scheduled.each do |student| %>
-		<h2><%= link_to student.name, student_path(student.id) %></h2>
-		<h3><%= student.phone_number %></h3>
-		<h3><%= mail_to student.email %></h3>
-		<br>
-	<% end %>
+  <% @students_scheduled.each do |student| %>
+    <h2><%= link_to student.name, student_path(student.id) %></h2>
+	<h3><%= student.phone_number %></h3>
+	<h3><%= mail_to student.email %></h3>
+	<br>
+  <% end %>
 <% end %>	
 
 <h1>Applicants With In-Person Interviews Pending</h1>
 
 <% @students.each do |student| %>
-	<h2><%= link_to student.name, student_path(student.id) %></h2>
-	<h3><%= student.phone_number %></h3>
-	<h3><%= mail_to student.email %></h3>
-	<br>
+  <h2><%= link_to student.name, student_path(student.id) %></h2>
+  <h3><%= student.phone_number %></h3>
+  <h3><%= mail_to student.email %></h3>
+  <br>
 <% end %>	
