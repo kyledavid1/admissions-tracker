@@ -1,27 +1,25 @@
 class AdmissionOfficersController < ApplicationController
 
 
-# before_action except: [:login, :login_form] do
-# 		if current_user.nil? || (current_user.is_a?(AdmissionOfficer) && params[:id].to_i != current_user.id)
-# 			redirect_to admission_officers_login_form_path
-# 		end
-# 	end
-#when uncommented this forces me to login again even after I login.
+  before_action except: [:login, :login_form] do
+	  redirect_to admission_officers_login_form_path unless authorized?
+	end
+
 	def index 
 		@admin_officers = AdmissionOfficer.all
 	end
 
 	def login
 		admin_user = AdmissionOfficer.find_by(email: params['email'])
-#getting error of invalid hash somewhere within password_digest. Check and re-check names to make sure everything matches.
+
 		if admin_user && admin_user.authenticate(params['password'])
-			session[:user_type] = 'Admission Officer'
+			session[:user_type] = 'AdmissionOfficer'
 			session[:user_id] = admin_user.id
 			@admin = session[:email]
 
 			cookies[:email] = admin_user.email
 			cookies[:age_example] = {:value => "Expires in 10 seconds", :expires => Time.now + 10}
-
+			# binding.pry
 			redirect_to admission_officer_path(admin_user)
 		else
 			@error = true
@@ -34,6 +32,7 @@ class AdmissionOfficersController < ApplicationController
 		# I want to display students that belong to their particular admin officer. Reference student to admission_officer_id? Admission officer id is currently nil. We need to assign that a value before we can associate that ao with students.
 		@admin_officer = AdmissionOfficer.find(params[:id])
 		@students = Student.where(application_status: 'Phone Interview Pending')
+		flash[:success] = "Login Succesful!"
 		#display the students that belong to the admin officer.)
 		# @students = Student.all
 		# if @student.id == @admin_officer
@@ -51,7 +50,7 @@ class AdmissionOfficersController < ApplicationController
 		#this is not saving anything to the db.
 		@admin_officer = AdmissionOfficer.create(admission_officer_params)
 		if @admin_officer.save
-			flash[:success] = "Admission Officer Created"
+			flash[:success] = "Admission Officer Created!"
 			redirect_to admission_officers_path
 		else
 			render :new
@@ -82,6 +81,10 @@ class AdmissionOfficersController < ApplicationController
 
 	def admission_officer_params
 		params.require(:admission_officer).permit(:name, :email, :password)
+	end
+
+	def authorized?
+		!current_user.nil? || current_user.is_a?(AdmissionOfficer)
 	end
 
 end

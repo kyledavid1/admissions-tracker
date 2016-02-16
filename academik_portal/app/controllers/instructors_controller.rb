@@ -1,9 +1,7 @@
 class InstructorsController < ApplicationController
 
   before_action except: [:login, :login_form] do
-    if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
-      redirect_to '/instructors/login_form'
-    end
+    redirect_to instructors_login_form_path unless authorized?
   end
 
   def login
@@ -23,9 +21,9 @@ class InstructorsController < ApplicationController
   end
 
   def logout 
-      session.delete('user_id')
-      redirect_to '/'
-    end
+    session.delete('user_id')
+    redirect_to '/'
+  end
 
   def index
   	@instructors = Instructor.all
@@ -34,20 +32,37 @@ class InstructorsController < ApplicationController
 
   def show  
     @instructor = Instructor.find(params[:id])
-    @students = Student.where(application_status: 'In-Person Interview')
+    @students_scheduled = Student.where(instructor_id: params[:id])
+    @students = Student.where(application_status: 'In-Person Interview Pending')
+  end
+
+  def new
+    @instructor = Instructor.new
   end
 
   def create
+    @instructor = Instructor.create(instructor_params)
+    if @instructor.save
+      redirect_to instructor_path(@instructor)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
-  # def update
-  #   @student = Student.find(params[:id])
-  # end
+  def update
+  end
 
-  # def student
-  # end
+  def instructor_params
+    params.require(:instructor).permit(:name, :email, :password, :course)
+  end
+
+  private
+
+  def authorized?
+    !current_user.nil? || current_user.is_a?(Instructor)
+  end
 
 end

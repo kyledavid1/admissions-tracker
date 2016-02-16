@@ -1,10 +1,20 @@
-<h1>Welcome <%= @instructor.name %>! Select a student for an in-person interview!</h1>
+<% if @students_scheduled.any? %>	
+  <h1>In-Person Interviews Scheduled With <%= @instructor.name %></h1>
 
-<a href = '/instructors/logout'>Testing Logout Button </a>
+  <% @students_scheduled.each do |student| %>
+    <h2><%= link_to student.name, student_path(student.id) %></h2>
+    <h3><%= student.phone_number %></h3>
+    <h3><%= mail_to student.email %></h3>
+    <a href="/students/<%= student.id %>/instructor_questionnaires/new"><button>Create A Questionnaire</button></a>
+    <br>
+  <% end %>
+<% end %>
+
+<h1>Applicants With In-Person Interviews Pending</h1>
 
 <% @students.each do |student| %>
-	<h2><%= link_to student.name, student_path(student.id) %></h2>
-	<h3><%= student.phone_number %></h3>
-	<h3><%= mail_to student.email %></h3>
-	------------------------------------------------------------
+  <h2><%= link_to student.name, student_path(student.id) %></h2>
+  <h3><%= student.phone_number %></h3>
+  <h3><%= mail_to student.email %></h3>
+  <br>
 <% end %>	

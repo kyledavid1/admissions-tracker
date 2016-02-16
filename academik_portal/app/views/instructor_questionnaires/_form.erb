@@ -23,12 +23,6 @@ button{
   left: 533px;
 }
 
-.minutes{
-  position: relative;
-  top: 25px;
-  left: 563px;
-}
-
 
   </style>
 
@@ -37,7 +31,7 @@ button{
 
     <h1>Create a new Instructor Questionnaire:</h1>
     <div id="iq">
-<%= form_for (@iq) do |r| %>
+<%= form_for @iq, method: :post do |r| %>
     <div class="input-strength">
   <%= r.text_field :strengths, placeholder: "Student Strengths" %><br>
      </div>
@@ -49,7 +43,12 @@ button{
       <div class="input-comments">
   <%= r.text_area :comments, placeholder: "Comments"%><br>
       </div>
-
+  <%= r.hidden_field :instructor_id, value: session[:user_id] %>
+  <%= r.hidden_field :student_id, value: params[:student_id] %>
+  <%= fields_for @student method: :patch do |f| %>
+    <%= f.hidden_field :application_status: @student.application_status %>
+  <% end %>  
+  <% end %>    
       <div class="iq-submit">
   <%= r.submit "Add Questionnaire" %>
 
@@ -59,13 +58,4 @@ button{
 
 
 
-		<div id="timer">
-      <span class="minutes">Phone Screen Timer</span><br />
 
-<div type="submit" class="start">
-  <h3><button>Start Timer</button></h3>
-</div>
-<div type="submit" class="end">
-<h3><button>End Timer</button></h3>
-</div>
-  </div>
