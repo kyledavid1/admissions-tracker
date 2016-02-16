@@ -50,7 +50,7 @@ p.lead{
   padding: 10px;
 }
 
-#loginform, #registerform, #new-ao, #iq, #aoq{
+#loginform, #registerform, #new-ao, #iq, #aoq, #ao-update{
   border: 3px dotted black;
   width: 550px;
   padding-left: 180px;
@@ -90,6 +90,16 @@ p.lead{
   color: red;
 }
 
+.ao-update-button{
+  position: relative;
+  top: 14px;
+  left: 60px;
+}
+
+.ao-update-button:active{
+  color: red;
+}
+
 .iq-submit{
   position: relative;
   top: 12px;
@@ -113,15 +123,6 @@ p.lead{
 .start, .end{
   position: relative;
   left: 30px;
-}
-
-.minutes{
-  color: black;
-  font-weight: bold;
-  position: relative;
-  top: 10px;
-  background: rgba(0,0,0,0.25);
-
 }
 
 .text-muted{
