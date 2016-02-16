@@ -73,10 +73,10 @@ class AdmissionOfficersController < ApplicationController
 		end
 	end
 
-	def destroy
-		current_user.delete
-		redirect_to root_url
-	end
+	def logout 
+    	session.delete('user_id')
+    	redirect_to '/'
+  	end
 
 	private
 

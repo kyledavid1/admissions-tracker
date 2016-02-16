@@ -7,15 +7,6 @@
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 
-<h1>Welcome <%= @admin_officer.name %></h1>
-<!-- <h2><%#= @admin_officer.email %></h2>
- -->
-<h4><%= link_to "View All Admissions Officers", admission_officers_path %></h4>
-    <h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
-
-
-
-
 <!-- Possibly make this go to another page? Currently only displays at the top of the page and under the first student. -->
 
 <h4><%= link_to "Questionnaire", new_ao_questionnaire_path %></h4>
@@ -31,21 +22,6 @@
 <h3>Application Essay: <%= s.application_essay %></h3>
 <h3>Application Status: <%= s.application_status %></h3>
 
-
-<div type="submit" class="start">
-
-	<h3><button>Start Timer</button></h3>
-</div>
-
-----------------------------------------------------------------------------
-
-<% end %>
-
-    <h3><button>Start Timer</button></h3>
-</div>
-
-
-----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 
