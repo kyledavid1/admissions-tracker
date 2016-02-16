@@ -1,25 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+	<title>Instructor Questionnaire</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link href="/css/carousel.css" rel="stylesheet">
+   <style>
+
+h1{
+   color: white;
+}
+
+button{
+  position: relative;
+  top: 25px;
+  left: 533px;
+}
+
+.minutes{
+  position: relative;
+  top: 25px;
+  left: 563px;
+}
+
+
+  </style>
+
+</head>
+<body>
+
+ <div class="header-logo-bar">
+       <img class="admissions-logo" src="/admissions_logo_bar.png">
+    </div>
+
+      <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">GA Admissions Portal</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+          
+                <li><a href="/about">About</a></li>
+                <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+    <h1>Create a new Instructor Questionnaire:</h1>
+    <div id="iq">
 <%= form_for (@iq) do |r| %>
+    <div class="input-strength">
   <%= r.text_field :strengths, placeholder: "Student Strengths" %><br>
+     </div>
+
+     <div class="input-weakness">
   <%= r.text_field :weaknesses, placeholder: "Student Weaknesses" %><br>
-  <p>Are they a good fit?</p><%= r.label "No" %>
-  <%= r.check_box :good_fit %>
-  <%= r.label "Yes" %>
-  <%= r.check_box :good_fit %><br>
-  
+     </div>
+
+      <div class="input-comments">
   <%= r.text_area :comments, placeholder: "Comments"%><br>
+      </div>
+
+      <div class="iq-submit">
   <%= r.submit "Add Questionnaire" %>
+
+      </div>
 <% end %>
+  </div>
 
------------------------------------------------------------
 
+
+		<div id="timer">
+      <span class="minutes">Phone Screen Timer</span><br />
 
 <div type="submit" class="start">
-		<div id="timer">
-			Phone Screen Timer<span class="minutes"></span><br />
-	</div>
-
-	<h3><button>Start Timer</button></h3>
+  <h3><button>Start Timer</button></h3>
 </div>
 <div type="submit" class="end">
 <h3><button>End Timer</button></h3>
 </div>
+  </div>

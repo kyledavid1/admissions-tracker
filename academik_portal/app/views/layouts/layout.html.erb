@@ -17,6 +17,51 @@ h1{
    color: white;
 }
 
+h2{
+	color: black;
+}
+
+a{
+	font-size: 30px;
+	position: relative;
+	left: 20px;
+}
+
+.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay{
+	font-size: 18px;
+	color: black;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+
+.signup-button{
+	color: white;
+	background: black;
+	position: relative;
+	left: 10px;
+	top: 15px;
+	
+}
+
+.signup-button:active{
+	background: red;
+}
+
+.text-muted{
+  color: rgba(240, 72, 72, 0.75);
+  font-weight: bold;
+}
+
+p {
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+}
+
+
+
+
+
 
 
 
@@ -49,16 +94,16 @@ h1{
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="/students/login_form">Students</a></li>
-                    <li><a href="/admission_officers/login_form">Admissions Officers</a></li>
-                    <li><a href="/instructors/login_form">Instructors</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Admissions Officers</a></li>
+                    <li><a href="#">Instructors</a></li>
                     <!-- <li role="separator" class="divider"></li>
                     <li class="dropdown-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li> -->
                   </ul>
                 </li>
-                <li><a href="/about">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
               </ul>
             </div>
@@ -67,21 +112,7 @@ h1{
 
       </div>
     </div>
-
-                  
-	
-
-<h1> Existing Student<span class="text-muted"> / Login</span></h1>
-
-<div id = 'loginform'>
-	<form method="post" action="/students/login">
-		<label for "email" class="input-email"> Enter Your E-mail Address: </label> <br>
-			<input type = 'text' name = 'email'> <br>
-		<label for 'password' name = 'password' class="input-password"> Enter your password: </p>
-			<input type = 'password' name = 'password'> <br>
-			<input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token() %>' size = '65'> <br>
-	<button type = 'Log In' class="login-button"> Log In </button>
-	</form>
-</div>	
-</body>
-</html>
+    <%= yield %>
+   
+    </body>
+      </html>

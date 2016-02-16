@@ -50,7 +50,7 @@ p.lead{
   padding: 10px;
 }
 
-#loginform, #registerform{
+#loginform, #registerform, #new-ao, #iq, #aoq, #ao-update, #update-student{
   border: 3px dotted black;
   width: 550px;
   padding-left: 180px;
@@ -59,7 +59,8 @@ p.lead{
   background: rgba(0,0,45,0.25);
 }
 
-.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay{
+.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay, 
+.input-strength, .input-weakness, .input-comments, .input-course-goals, .input-reason{
   font-size: 18px;
   color: black;
   padding-top: 8px;
@@ -77,6 +78,61 @@ p.lead{
 
 .signup-button:active{
   background: red;
+}
+
+.ao-reg-button{
+  position: relative;
+  top: 12px;
+}
+ 
+
+.ao-reg-button:active{
+  color: red;
+}
+
+.ao-update-button{
+  position: relative;
+  top: 14px;
+  left: 60px;
+}
+
+.ao-update-button:active{
+  color: red;
+}
+
+.iq-submit{
+  position: relative;
+  top: 12px;
+  left: 32px;
+}
+
+.iq-submit:active{
+  color: red;
+}
+
+.student-update{
+  position: relative;
+  top: 14px;
+  left: 65px;
+}
+
+.student-update:active{
+  color: red;
+}
+
+.aoq-submit{
+  position: relative;
+  top: 20px;
+  left: 17px;
+}
+
+.aoq-submit:active{
+  color: red;
+}
+
+.start, .end{
+  position: relative;
+  left: 30px;
 }
 
 .text-muted{

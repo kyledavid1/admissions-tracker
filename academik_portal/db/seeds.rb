@@ -24,7 +24,8 @@ AoQuestionnaire.destroy_all
     course: ['WDI', 'UXDI', 'PMI'].sample,    
     application_essay: Faker::Lorem.paragraph,
     application_status: ['Phone Interview Pending', 'In-Person Interview', 'Interviews Completed', 'Accepted', "Rejected"].sample,
-    phone_number: Faker::Number.number(10)
+    phone_number: Faker::Number.number(10),
+    picture: Faker::Avatar.image
     # admission_officer_id: rand(1..15)
   )
 end
@@ -50,7 +51,6 @@ end
   InstructorQuestionnaire.create(
 		strengths: Faker::Hipster.sentence(8),
 		weaknesses: Faker::Hipster.sentence(5),
-		good_fit: [true, false].sample,
 		comments: Faker::Hipster.sentence(15)
   )
 end

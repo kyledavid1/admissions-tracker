@@ -20,6 +20,11 @@ class InstructorsController < ApplicationController
     end  
   end
 
+  def logout 
+      session.delete('user_id')
+      redirect_to '/'
+    end
+
   def index
   	@instructors = Instructor.all
     render :instructors
