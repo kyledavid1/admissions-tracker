@@ -1,3 +1,15 @@
+<div id="flash">
+<%= flash[:success] %>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 1200);
+ })
+</script>
+
 
 <h1>Welcome <%= @admin_officer.name %></h1>
 
@@ -7,7 +19,7 @@
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 <h4><%= link_to "Questionnaire", new_ao_questionnaire_path %></h4>
-<h4><button><%= link_to "Log The Fuck Out", admission_officers_logout_path %></button><br />
+<h4><button><%= link_to "Log Out", admission_officers_logout_path %></button><br />
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>

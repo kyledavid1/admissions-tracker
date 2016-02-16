@@ -1,4 +1,14 @@
+<div id="flash">
+<%= flash[:success] %>
+</div>
 
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 1200);
+ })
+</script>
 <!-- <h1><%#= link_to "Login", admission_officers_login_form_path %></h1>
  -->
 <h1>Admissions Officers</h1>
