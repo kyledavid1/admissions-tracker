@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/instructors/login_form' => 'instructors#login_form'
   post '/instructors/login' => 'instructors#login'
 
+  get '/instructors/logout' => 'instructors#logout'
+  post '/instructors/logout' => 'instructors#logout'
+
   resources :admission_officers, :instructors do 
     resources :students
   end

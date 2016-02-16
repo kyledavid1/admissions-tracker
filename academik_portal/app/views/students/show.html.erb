@@ -2,23 +2,33 @@
 
 <!-- if student_logged_in do -->
 
-<h1>Profile Page for <%= @student.name %> </h1>
+<center> <h1>Profile Page for <%= @student.name %> </h1> </center>
 
+<center> <img src= "<%= @student.picture %>" alt= "student"> </center> <br>
 
-
-
-<h1> Name: <%= @student.name %> </h1> <br>
+Name: <%= @student.name %> <br>
 E-mail: <%= @student.email %> <br>
 Course: <%= @student.course %> <br>
 Phone Number: <%= @student.phone_number %> <br>
 Application Essay: <%= @student.application_essay %><br>
 Application Status: <%= @student.application_status %> <br>
 
+<% if session[:user_type] == 'Student' %>
+Next Steps:
+<ul>
+<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
+<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
+</ul>
 
-The code here is supposed to read:
-if the current user is an admissions officer or an instructor, they should be able to see extra things. Either they would see forms or buttons that link to pages to create forms.
+<button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
+<br>
+<% end %>
 
-<% if session[:user_type] == 'Instructor' %>
+<% if session[:user_type] == 'Student' %>
+<button> <a href = "/students/logout">Logout</a> </button>
+<% end %>
+
+<% if session[:user_type] == 'Instructor' || session[:user_type] == 'Admission Officer' %>
 
 <h2> Phone Interview </h2>
 <p> Scheduled by Admissions Officer as the first step of the process </p
@@ -34,8 +44,5 @@ if the current user is an admissions officer or an instructor, they should be ab
 <a href = "/instructor_questionnaires/new">Schedule in-person interview </a> <br> 
 <% else %>
 
-<p> Nothing else here. </p>
-
 <% end %>
 
-<a href = "/students/logout">Logout</a>
