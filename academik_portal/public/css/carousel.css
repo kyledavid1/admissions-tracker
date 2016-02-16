@@ -50,7 +50,7 @@ p.lead{
   padding: 10px;
 }
 
-#loginform{
+#loginform, #registerform{
   border: 3px dotted black;
   width: 550px;
   padding-left: 180px;
