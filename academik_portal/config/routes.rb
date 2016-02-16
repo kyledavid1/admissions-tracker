@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   post '/admission_officers/login' => 'admission_officers#login'
   post '/create' => 'admission_officers#create'
 
+  get '/admission_officers/logout' => 'admission_officers#logout'
+  post '/admission_officers/logout' => 'admission_officers#logout'
+
   get '/instructors/login_form' => 'instructors#login_form'
   post '/instructors/login' => 'instructors#login'
 
@@ -21,6 +24,13 @@ Rails.application.routes.draw do
   resources :students do
     resources :ao_questionnaires, :instructor_questionnaires
   end
+
+  get '/students/logout' => 'students#logout'
+  post '/students/logout' => 'students#logout'
+
+  resources :students
+  resources :ao_questionnaires
+  resources :instructor_questionnaires
 
   root :controller => 'static', :action => '/'
 

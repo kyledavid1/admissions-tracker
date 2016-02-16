@@ -1,10 +1,14 @@
 class StudentsController < ApplicationController
 
+
+
+
 # GET /users
   # GET /users.json
 
 
 	# before_action except: [:login, :login_form, :new, :create] do
+
 	# 	if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
 	# 		redirect_to '/students/login_form'
 	# 	end
@@ -28,6 +32,12 @@ class StudentsController < ApplicationController
     		render :login_form
     	end
     end
+
+    def logout 
+    	session.delete('user_id')
+    	redirect_to '/'
+  	end
+
 
     #student actually would not be able to look at this page
 	def index
@@ -67,20 +77,6 @@ class StudentsController < ApplicationController
 		end
     end
 
-  #   def create
-  #   @user = User.new(user_params)
-
-  #   respond_to do |format|
-  #     if @user.save
-  #       UserMailer.welcome_email(@user).deliver_later
-  #       format.html { redirect_to @user, notice: 'User was successfully created.' }
-  #       format.json { render :show, status: :created, location: @user }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @user.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
 
 	def update
