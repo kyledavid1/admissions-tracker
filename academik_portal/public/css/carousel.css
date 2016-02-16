@@ -50,10 +50,39 @@ p.lead{
   padding: 10px;
 }
 
-#loginform{
+#loginform, #registerform{
   border: 3px dotted black;
+  width: 550px;
+  padding-left: 180px;
+  position: relative;
+  left: 350px;
+  background: rgba(0,0,45,0.25);
 }
 
+.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay{
+  font-size: 18px;
+  color: black;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+
+.signup-button{
+  color: white;
+  background: black;
+  position: relative;
+  left: 10px;
+  top: 15px;
+  
+}
+
+.signup-button:active{
+  background: red;
+}
+
+.text-muted{
+  color: rgba(240, 72, 72, 0.75);
+  font-weight: bold;
+}
 
 div.item.active{
   background: white;
@@ -67,10 +96,6 @@ div.item.active{
   color: black;
 }
 
-.text-muted{
-  color: rgba(240, 72, 72, 0.75);
-  font-weight: bold;
-}
 
 .center-block-1, .center-block-3{
   height: 500px;
