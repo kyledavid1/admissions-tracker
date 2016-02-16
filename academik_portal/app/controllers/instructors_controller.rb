@@ -1,13 +1,9 @@
 class InstructorsController < ApplicationController
 
-  # before_action except: [:login, :login_form] do
-  #   if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
-  #     redirect_to 'instructors/login_form'
-  #   end
-  # end
-
-  def index
-    @instructors = Instructor.all
+  before_action except: [:login, :login_form] do
+    if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
+      redirect_to '/instructors/login_form'
+    end
   end
 
   def login
@@ -24,6 +20,16 @@ class InstructorsController < ApplicationController
       @error = true
       render :login_form 
     end  
+  end
+
+  def logout 
+    session.delete('user_id')
+    redirect_to '/'
+  end
+
+  def index
+  	@instructors = Instructor.all
+    render :instructors
   end
 
   def show  
