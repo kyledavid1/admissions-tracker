@@ -35,7 +35,7 @@ class InstructorsController < ApplicationController
   def show  
     @instructor = Instructor.find(params[:id])
     @students_scheduled = Student.where(instructor_id: params[:id])
-    @students = Student.where(application_status: 'In-Person Interview')
+    @students = Student.where(application_status: 'In-Person Interview Pending')
   end
 
   def new

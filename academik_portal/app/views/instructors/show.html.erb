@@ -5,6 +5,7 @@
     <h2><%= link_to student.name, student_path(student.id) %></h2>
     <h3><%= student.phone_number %></h3>
     <h3><%= mail_to student.email %></h3>
+    <a href="/students/<%= student.id %>/instructor_questionnaires/new"><button>Create A Questionnaire</button></a>
     <br>
   <% end %>
 <% end %>

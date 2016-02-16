@@ -24,7 +24,7 @@ AoQuestionnaire.destroy_all
     course: ['WDI', 'UXDI', 'PMI'].sample,    
     application_essay: Faker::Lorem.paragraph,
     application_status: ['Phone Interview Pending', 'Phone Interview Scheduled', 'In-Person Interview Pending', 'In-Person Interview Scheduled', 'Interviews Completed', 'Accepted', "Rejected"].sample,
-    phone_number: Faker::Number.number(10)
+    phone_number: Faker::Number.number(10),
     picture: Faker::Avatar.image
     # admission_officer_id: rand(1..15)
   )
