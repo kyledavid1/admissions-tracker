@@ -17,6 +17,40 @@ h1{
    color: white;
 }
 
+h2{
+	color: black;
+}
+
+a{
+	font-size: 30px;
+	position: relative;
+	left: 20px;
+}
+
+.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay{
+	font-size: 18px;
+	color: black;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+
+.signup-button{
+	color: white;
+	background: black;
+	position: relative;
+	left: 10px;
+	top: 15px;
+	
+}
+
+.signup-button:active{
+	background: red;
+}
+
+.text-muted{
+  color: rgba(240, 72, 72, 0.75);
+  font-weight: bold;
+}
 
 p {
 	font-size: 18px;
@@ -27,11 +61,11 @@ p {
 
 
 
+
+
+
+
   </style>
-
-
-
-
 
 </head>
 <body>
@@ -78,36 +112,7 @@ p {
 
       </div>
     </div>
-
-
-
-
-
-
-<h1> New Student Application Form</h1>
-
-<p> Are you interested in applying for an immersive program at General Assembly? Fill out this form to be added as a new applicant! </p>
-
-
-<div id='registerform'>
-	<form method='POST' action='/students/create'>
-		<label for "name" class="input-name"> Please enter your name </label> <br>
-			<input type='text' name='name'> <br> <br>
-		<label for "email" class="input-email"> Enter your e-mail address </label> <br>
-			<input type='text' name='email'> <br> <br>
-		<label for "phone_number" class="input-phone"> Provide a phone number </label> <br>
-			<input type='text' name='phone_number'> <br> <br>
-		<label for 'password' name='password' class="input-password"> Select a password </label> <br>
-			<input type='password' name='password'> <br>
-		<input type='hidden' name='authenticity_token' value='<%=form_authenticity_token() %>' size = '65'> <br>
-		<label for 'course' name='course' class="input-course"> What course are you applying to? </label> <br>
-		<select name='course'>
-  			<option value="WDI">Web Development Immersive</option>
-  			<option value="PMI">Product Management Immersive</option>
- 			<option value="UXDI">User Experience Development Immersive</option>
-		</select> <br> <br>
-		<label type='application_essay' name='application_essay' class="input-essay"> Why do you feel that you belong at General Assembly? </label> <br>
-		<textarea name='application_essay' placeholder="Write your response here"> </textarea> <br>
-	<button type='submit' class="signup-button"> Submit Your Application! </button>
-	</form>
-</div>	
+    <%= yield %>
+   
+    </body>
+      </html>

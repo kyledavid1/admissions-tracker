@@ -50,7 +50,7 @@ p.lead{
   padding: 10px;
 }
 
-#loginform, #registerform{
+#loginform, #registerform, #new-ao{
   border: 3px dotted black;
   width: 550px;
   padding-left: 180px;
@@ -77,6 +77,15 @@ p.lead{
 
 .signup-button:active{
   background: red;
+}
+
+.ao-reg-button{
+  position: relative;
+  top: 12px;
+}
+
+.ao-reg-button:active{
+  color: red;
 }
 
 .text-muted{
