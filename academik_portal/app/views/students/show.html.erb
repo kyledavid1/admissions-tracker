@@ -96,11 +96,10 @@ p{
       </div>
     </div>
 
+<center> <h1>Profile Page for <%= @student.name %> </h1> </center>
 
+<center> <img src= "<%= @student.picture %>" alt= "student"> </center> <br>
 
-
-
-<h1> <%= @student.name %> </h1> <br>
 <h2>E-mail: </h2>  <p><%= @student.email %></p> <br>
 <h2>Course: </h2> <p><%= @student.course %></p> <br>
 <h2>Phone Number: </h2> <p><%= @student.phone_number %></p> <br>
@@ -108,9 +107,25 @@ p{
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
 
 
+<% if session[:user_type] == 'Student' %>
+Next Steps:
+<ul>
+<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
+<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
+</ul>
+
+<button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
+<br>
+<% end %>
 
 
-<% if session[:user_type] == 'Instructor' %>
+<% if session[:user_type] == 'Student' %>
+<button> <a href = "/students/logout">Logout</a> </button>
+<% end %>
+
+
+
+<% if session[:user_type] == 'Instructor' || session[:user_type] == 'Admission Officer' %>
 
 <h2> Phone Interview </h2>
 <p> Scheduled by Admissions Officer as the first step of the process </p
@@ -126,8 +141,5 @@ p{
 <a href = "/instructor_questionnaires/new">Schedule in-person interview </a> <br> 
 <% else %>
 
-
-
 <% end %>
 
-<a href = "/students/logout">Logout</a>

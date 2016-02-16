@@ -7,12 +7,20 @@ class StudentsController < ApplicationController
   # GET /users.json
 
 
+
+	before_action except: [:login, :login_form, :new, :create, :edit] do
+		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+			redirect_to 'students/id'
+		end
+	end
+
 	# before_action except: [:login, :login_form, :new, :create] do
 
 	# 	if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
 	# 		redirect_to '/students/login_form'
 	# 	end
 	# end
+
 
     #this page was last edited on 2/12/16
 
@@ -63,7 +71,7 @@ class StudentsController < ApplicationController
 # POST /users
   # POST /users.json
 	def create
-		@student = Student.create(name: params[:name], email: params[:email], phone_number: params[:phone_number], password: params[:password], course: params[:course], application_essay: params[:application_essay], application_status: "Phone Interview Pending" )
+		@student = Student.create(name: params[:name], email: params[:email], phone_number: params[:phone_number], password: params[:password], course: params[:course], application_essay: params[:application_essay], picture: params[:picture], application_status: "Phone Interview Pending" )
 		respond_to do |format|
 			if @student.save
 				StudentMailer.welcome_email(@student).deliver_now
@@ -76,12 +84,19 @@ class StudentsController < ApplicationController
 		end
     end
 
+	def edit
+		@student = Student.find(params[:id])
+	end
 
 
 	def update
 		@student = Student.find(params[:id])
         @student.update(student_params)
-        redirect_to "students"
+        if @student.save
+			redirect_to student_path		
+		else
+			render :edit
+		end
     end
 
     private

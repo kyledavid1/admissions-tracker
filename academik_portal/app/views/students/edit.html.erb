@@ -1,0 +1,21 @@
+
+<h3>Update Your Information</h3>
+
+<%= @student.errors.full_messages.to_sentence %>
+
+	<%= form_for @student, url: student_path do |form| %>
+	<%= form.label :name %><br />
+	<%= form.text_field :name %><br />
+
+	<%= form.label :email %><br />
+	<%= form.text_field :email %><br />
+
+	<%= form.label :password %><br />
+	<%= form.password_field :password %><br />
+
+	<%= form.label :phone_number %><br />
+	<%= form.password_field :phone_number %><br />
+
+	<%= form.submit "Update" %>
+<% end %>
+
