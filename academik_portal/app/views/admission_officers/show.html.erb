@@ -20,9 +20,15 @@ h1{
 }
 
 a{ 
-  font-size: 20px;
+  font-size: 18px;
   position: relative;
   left: 5px;
+}
+
+.student-link > a{
+  font-size: 40px;
+  position: relative;
+  left: 8px;
 }
 
 button{
@@ -115,7 +121,7 @@ p{
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>
-<h3><%= link_to s.name, student_path(s.id) %></h3>
+<h3 class="student-link"><%= link_to s.name, student_path(s.id) %></h3>
 <h3>Email: </h3><p><%= s.email %></p><br>
 <h3>Phone: </h3><p><%= s.phone_number %></p><br>
 <h3>Course: </h3><p><%= s.course %></p><br>
