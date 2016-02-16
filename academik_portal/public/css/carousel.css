@@ -50,7 +50,7 @@ p.lead{
   padding: 10px;
 }
 
-#loginform, #registerform, #new-ao, #iq, #aoq, #ao-update{
+#loginform, #registerform, #new-ao, #iq, #aoq, #ao-update, #update-student{
   border: 3px dotted black;
   width: 550px;
   padding-left: 180px;
@@ -107,6 +107,16 @@ p.lead{
 }
 
 .iq-submit:active{
+  color: red;
+}
+
+.student-update{
+  position: relative;
+  top: 14px;
+  left: 65px;
+}
+
+.student-update:active{
   color: red;
 }
 

@@ -1,21 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+	<title>Edit Student</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link href="/css/carousel.css" rel="stylesheet">
+   <style>
+
+h3{
+   color: white;
+   background: black;
+}
+
+
+
+
+  </style>
+
+</head>
+<body>
+
+ <div class="header-logo-bar">
+       <img class="admissions-logo" src="/admissions_logo_bar.png">
+    </div>
+
+      <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">GA Admissions Portal</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+          
+                <li><a href="/about">About</a></li>
+                <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+
 
 <h3>Update Your Information</h3>
 
 <%= @student.errors.full_messages.to_sentence %>
-
+        <div id="update-student">
 	<%= form_for @student, url: student_path do |form| %>
+	    <div class="input-name">
 	<%= form.label :name %><br />
 	<%= form.text_field :name %><br />
-
+        </div>
+        <div class="input-email">
 	<%= form.label :email %><br />
 	<%= form.text_field :email %><br />
+	    </div>
 
+         <div class="input-password">
 	<%= form.label :password %><br />
 	<%= form.password_field :password %><br />
+	    </div>
 
+       <div class="input-phone">
 	<%= form.label :phone_number %><br />
 	<%= form.password_field :phone_number %><br />
-
+	    </div>
+         
+         <div class="student-update">
 	<%= form.submit "Update" %>
+	    </div>
 <% end %>
+      </div>
 
