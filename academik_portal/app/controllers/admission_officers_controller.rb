@@ -73,6 +73,11 @@ class AdmissionOfficersController < ApplicationController
 		end
 	end
 
+	def logout 
+    	session.delete('user_id')
+    	redirect_to root_path
+  	end
+
 	private
 
 	def admission_officer_params

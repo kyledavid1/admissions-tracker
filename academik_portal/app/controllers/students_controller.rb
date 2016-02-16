@@ -1,7 +1,11 @@
 class StudentsController < ApplicationController
 
+
+
+
 # GET /users
   # GET /users.json
+
 
 
 	before_action except: [:login, :login_form, :new, :create, :edit] do
@@ -9,6 +13,14 @@ class StudentsController < ApplicationController
 			redirect_to 'students/id'
 		end
 	end
+
+	# before_action except: [:login, :login_form, :new, :create] do
+
+	# 	if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+	# 		redirect_to '/students/login_form'
+	# 	end
+	# end
+
 
     #this page was last edited on 2/12/16
 
