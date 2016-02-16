@@ -66,7 +66,7 @@ p{
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 <h4><%= link_to "Questionnaire", new_ao_questionnaire_path %></h4>
-<h4><button><%= link_to "Log The Fuck Out", admission_officers_logout_path %></button><br />
+<h4><button><%= link_to "Log The Fuck Out", logout_path %></button><br />
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>
@@ -76,6 +76,7 @@ p{
 <h3>Course: </h3><p><%= s.course %></p><br>
 <h3>Application Essay: </h3><p><%= s.application_essay %></p><br>
 <h3>Application Status:</h3> <p><%= s.application_status %></p><br>
+<% end %>
 
 
 ----------------------------------------------------------------------------

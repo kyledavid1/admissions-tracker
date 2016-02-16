@@ -27,35 +27,14 @@ a{
 	left: 20px;
 }
 
-.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay{
-	font-size: 18px;
-	color: black;
-	padding-top: 8px;
-	padding-bottom: 5px;
-}
-
-.signup-button{
-	color: white;
-	background: black;
-	position: relative;
-	left: 10px;
-	top: 15px;
-	
-}
-
-.signup-button:active{
-	background: red;
-}
-
-.text-muted{
-  color: rgba(240, 72, 72, 0.75);
-  font-weight: bold;
-}
-
 p {
 	font-size: 18px;
 	font-weight: bold;
 	color: black;
+}
+
+.user-greeting > li {
+  color: white;
 }
 
 
@@ -109,6 +88,9 @@ p {
                 </li>
                 <li><a href="/about">About</a></li>
                 <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
+                <% if session["user_id"] %>
+                <li class="user-greeting"> Hello there! </li>
+                <% end %>
               </ul>
             </div>
           </div>

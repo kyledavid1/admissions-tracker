@@ -54,14 +54,7 @@ class StudentsController < ApplicationController
 	#student will not be able to search for other students, only look at their own page
 	def show
 		@student = Student.find(params[:id])
-		@ao_questionnaire = AoQuestionnaire.new
-		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
-	# 	if student_logged_in
-	# 		render : 
-	# 		#students will not be able to see this, they will be redirected back to their dashboard
-	# 	else
-	# 		@student = Student.find(params[:id])
-	# 	end
+		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
 	end
 
 	def new

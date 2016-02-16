@@ -74,5 +74,8 @@ p{
   <button> <a href = "/students/logout">Logout</a> </button>
 <% end %>
 
+<% if session[:user_id] == 'AdmissionOfficer' || session[:user_id] == 'Instructor' %>
+
+
 </body>
 
