@@ -108,16 +108,6 @@ p{
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
 
 
-<% if session[:user_type] == 'Student' %>
-Next Steps:
-<ul>
-<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
-<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
-</ul>
-
-
-
-
 <% if session[:user_type] == 'Admission Officer' %>
   <h2>Admission Officers</h2>
   <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
