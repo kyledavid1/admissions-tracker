@@ -73,6 +73,11 @@ class AdmissionOfficersController < ApplicationController
 		end
 	end
 
+	def destroy
+		current_user.delete
+		redirect_to root_url
+	end
+
 	private
 
 	def admission_officer_params

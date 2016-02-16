@@ -1,10 +1,10 @@
 class StudentsController < ApplicationController
 
-	before_action except: [:login, :login_form] do
-		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
-			redirect_to '/students/login_form'
-		end
-	end
+	# before_action except: [:login, :login_form] do
+	# 	if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
+	# 		redirect_to '/students/login_form'
+	# 	end
+	# end
 
     #this page was last edited on 2/12/16
 

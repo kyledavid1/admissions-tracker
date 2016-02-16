@@ -1,22 +1,16 @@
 <h1>Welcome <%= @admin_officer.name %></h1>
 
+<h4><%= link_to "Home", root_path %></h4>
+
 <h4><%= link_to "View All Admissions Officers", admission_officers_path %></h4>
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 
 <!-- Possibly make this go to another page? Currently only displays at the top of the page and under the first student. -->
 
+<h4><%= link_to "Questionnaire", new_ao_questionnaire_path %></h4>
 
-	<div type="submit" class="start">
-		<div id="timer">
-			Phone Screen Timer<span class="minutes"></span><br />
-	</div>
 
-	<h3><button>Start Timer</button></h3>
-</div>
-<div type="submit" class="end">
-<h3><button>End Timer</button></h3>
-</div>
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>
