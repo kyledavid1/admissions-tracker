@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
 
 	before_action except: [:login, :login_form, :new, :create, :edit] do
 		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
-			redirect_to 'students/id'
+			redirect_to '/students/id'
 		end
 	end
 
@@ -53,7 +53,12 @@ class StudentsController < ApplicationController
 
 	#student will not be able to search for other students, only look at their own page
 	def show
+<<<<<<< HEAD
 		@student = Student.find(params[:id])
+		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
+=======
+		@id = params[:id]
+		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestionnaire.new
 		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
 	# 	if student_logged_in
@@ -62,6 +67,7 @@ class StudentsController < ApplicationController
 	# 	else
 	# 		@student = Student.find(params[:id])
 	# 	end
+>>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
 	end
 
 	def new
@@ -84,25 +90,37 @@ class StudentsController < ApplicationController
 		end
     end
 
-	def edit
-		@student = Student.find(params[:id])
-	end
-
+    def edit
+    	@student = Student.find(params[:id])
+    end
 
 	def update
-		@student = Student.find(params[:id])
-        @student.update(student_params)
-        if @student.save
-			redirect_to student_path		
-		else
-			render :edit
-		end
+		@id = params[:id]
+		@student = Student.find(@id)
+        if session[:user_type] == 'Student'
+        	@student.update(student_params)
+        elsif session[:user_type] == 'Admission Officer'
+        	@student.update_attributes(application_status: "Phone Interview Scheduled", admission_officer_id: session[:user_id])
+        else session[:user_type] == 'Instructor'
+        	@student.update_attributes(application_status: "In-Person Interview Scheduled", instructor_id: session[:user_id])
+        	redirect_to instructor_path(session[:user_id])
+        end
     end
+
+    # def schedule
+    # 	@student = Student.find(params[:id])
+    # 	@student.update_attribute(:application_status, "In-Person Interview Scheduled")
+    # end
+
+    # def assign_instructor
+    # 	@student = Student.find(params[:id])
+    # 	@student.update_attribute(:admission_officer_id, session[:user_id])
+    # end
 
     private
 
     def student_params 
-		params.require(:student).permit(:name, :email, :phone_number, :password_digest, :course, :application_essay, :application_status, :admissions_officer_id, :instructor_id)
+		params.require(:student).permit(:name, :email, :phone_number, :password)
 	end
 	# def destroy
 	# 	@student = Student.find(params[:id])

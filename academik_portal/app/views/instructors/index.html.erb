@@ -1,7 +1,10 @@
 <h1>List of General Assembly Instructors</h1>
 
 <% @instructors.each do |i| %>
-  <h2><%= link_to i.name, instructor_path(i.id) %></h2>
+  <h2><%= i.name %></h2>
   <h3><%= i.course %></h3>
   <h3><%= mail_to i.email %></h3>
+  ------------------------------------------------------------
 <% end %>
+<br>
+<h2><%= link_to 'Create a New Instructor', new_instructor_path %></h2>

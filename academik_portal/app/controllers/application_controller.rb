@@ -1,3 +1,8 @@
+
+class ApplicationController < ActionController::Base
+
+	layout 'layout', :except => :index
+
 	class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -11,4 +16,9 @@
 		end
 		#need code here to indicate that the person currently logged in is a student
 	end	
+
+	def logout 
+    	session.delete('user_id')
+    	redirect_to '/'
+  	end
 end
