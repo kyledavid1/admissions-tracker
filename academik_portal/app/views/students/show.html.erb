@@ -4,36 +4,24 @@
 
 <h1>Profile Page for <%= @student.name %> </h1>
 
+<h2>E-mail: <%= @student.email %></h2>
+<h3>Course: <%= @student.course %></h3>
+<h3>Phone Number: <%= @student.phone_number %></h3>
+<h3>Application Status: <%= @student.application_status %></h3>
+<h3>Application Essay:</h3> <%= @student.application_essay %><br>
 
 
 
-<h1> Name: <%= @student.name %> </h1> <br>
-E-mail: <%= @student.email %> <br>
-Course: <%= @student.course %> <br>
-Phone Number: <%= @student.phone_number %> <br>
-Application Essay: <%= @student.application_essay %><br>
-Application Status: <%= @student.application_status %> <br>
+<!-- The code here is supposed to read:
+if the current user is an admissions officer or an instructor, they should be able to see extra things. Either they would see forms or buttons that link to pages to create forms. -->
 
-
-The code here is supposed to read:
-if the current user is an admissions officer or an instructor, they should be able to see extra things. Either they would see forms or buttons that link to pages to create forms.
-
-<% if session[:user_type] == 'Instructor' %>
-
-<h2> Phone Interview </h2>
-<p> Scheduled by Admissions Officer as the first step of the process </p
-
-
-<a href = "/ao_questionnaires/new"><button> Phone interview Questionnaire </button> </a> <br> 
-
-<p> Course Goals: <%= @ao_questionnaire.course_goals %> </p>
-
-<h2> In-Person Interview </h2>
-<p> Scheduled by Instructor once the applicant has cleared the Phone Interview. </p>
-
-<a href = "/instructor_questionnaires/new">Schedule in-person interview </a> <br> 
+<% if session[:user_type] == 'Admission Officer' %>
+	<h2>Admission Officers</h2>
+	<a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
+<% elsif session[:user_type] == 'Instructor' %>
+	<h2>Instructors</h2>
+	<%= link_to "Schedule An In-Person Interview", {:controller => "students", :action => "update", :id => @id} %>
+	<!-- <a href="/students/<%=@id%>/edit"><button>Schedule An In-Person Interview</button></a><br> --> 
 <% else %>
-
-<p> Nothing else here. </p>
-
+	<p>PLACEHOLDER: Nothing else here.</p>
 <% end %>

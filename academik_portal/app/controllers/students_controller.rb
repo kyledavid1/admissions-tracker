@@ -35,7 +35,8 @@ class StudentsController < ApplicationController
 
 	#student will not be able to search for other students, only look at their own page
 	def show
-		@student = Student.find(params[:id])
+		@id = params[:id]
+		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestionnaire.new
 		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
 	# 	if student_logged_in
@@ -83,15 +84,32 @@ class StudentsController < ApplicationController
 
 
 	def update
-		@student = Student.find(params[:id])
-        @student.update(student_params)
-        redirect_to "students"
+		@id = params[:id].to_i
+		@student = Student.find(@id)
+        if session[:user_type] == 'Student'
+        	@student.update(student_params)
+        elsif session[:user_type] == 'Admission Officer'
+        	@student.update_attributes!(:application_status => "Phone Interview Scheduled", :admission_officer_id => session[:user_id])
+        else session[:user_type] == 'Instructor'
+        	@student.update_attributes!(:application_status => "In-Person Interview Scheduled", :instructor_id => session[:user_id])
+        end	
+        redirect back
     end
+
+    # def schedule
+    # 	@student = Student.find(params[:id])
+    # 	@student.update_attribute(:application_status, "In-Person Interview Scheduled")
+    # end
+
+    # def assign_instructor
+    # 	@student = Student.find(params[:id])
+    # 	@student.update_attribute(:admission_officer_id, session[:user_id])
+    # end
 
     private
 
     def student_params 
-		params.require(:student).permit(:name, :email, :phone_number, :password_digest, :course, :application_essay, :application_status, :admissions_officer_id, :instructor_id)
+		params.require(:student).permit(:name, :email, :phone_number, :password)
 	end
 	# def destroy
 	# 	@student = Student.find(params[:id])

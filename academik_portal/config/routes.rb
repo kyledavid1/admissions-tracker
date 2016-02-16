@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   get '/students/new' => 'students#new'
   post '/students/create' => 'students#create'
 
-  resources :students
-  resources :ao_questionnaires
-  resources :instructor_questionnaires
+  resources :students do
+    resources :ao_questionnaires, :instructor_questionnaires
+  end
 
   root :controller => 'static', :action => '/'
 
