@@ -1,9 +1,7 @@
 class InstructorsController < ApplicationController
 
   before_action except: [:login, :login_form] do
-    if current_user.nil? || (current_user.is_a?(Instructor) && params[:id].to_i != current_user.id)
-      redirect_to '/instructors/login_form'
-    end
+    redirect_to instructors_login_form_path unless authorized?
   end
 
   def login
@@ -49,5 +47,11 @@ class InstructorsController < ApplicationController
 
   # def student
   # end
+
+  private
+
+  def authorized?
+    !current_user.nil? || current_user.is_a?(Instructor)
+  end
 
 end
