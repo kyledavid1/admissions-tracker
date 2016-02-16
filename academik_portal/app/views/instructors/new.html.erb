@@ -1,0 +1,22 @@
+<h1>New Instructor</h1>
+
+<%= form_for @instructor do |f| %>
+  
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name %>
+  <br><br>
+
+  <%= f.label :email, "Email:" %>
+  <%= f.text_field :email %>
+  <br><br>
+
+  <%= f.label :password, "Create a Password:" %>
+  <%= f.password_field :password %>
+  <br><br>
+
+  <%= f.label :course, "Course:" %>
+  <%= f.select(:course, [['Web Development Immersive', 'WDI'], ['User Experience Design Immersive', 'UXDI'], ['Product Management Immersive', 'PMI']]) %>
+  <br><br>  
+
+  <%= f.submit "Create a New Instructor" %>
+<% end %>
