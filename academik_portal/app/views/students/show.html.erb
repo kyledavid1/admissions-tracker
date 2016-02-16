@@ -38,64 +38,10 @@ p{
 	color: rgba(240, 72, 72, 0.75);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-  </style>
+</style>
 
 </head>
 <body>
-
- <div class="header-logo-bar">
-       <img class="admissions-logo" src="/admissions_logo_bar.png">
-    </div>
-
-      <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/">GA Admissions Portal</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="/students/login_form">Students</a></li>
-                    <li><a href="/admission_officers/login_form">Admissions Officers</a></li>
-                    <li><a href="/instructors/login_form">Instructors</a></li>
-                    <!-- <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li> -->
-                  </ul>
-                </li>
-                <li><a href="/about">About</a></li>
-                <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-      </div>
-    </div>
 
 <center> <h1><%= @student.name %> </h1> </center>
 
@@ -107,18 +53,7 @@ p{
 <h2>Application Essay: </h2> <p><%= @student.application_essay %></p><br>
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
 
-
-<% if session[:user_type] == 'Student' %>
-Next Steps:
-<ul>
-<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
-<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
-</ul>
-
-
-
-
-<% if session[:user_type] == 'Admission Officer' %>
+<% if session[:user_type] == 'AdmissionOfficer' %>
   <h2>Admission Officers</h2>
   <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
 <% elsif session[:user_type] == 'Instructor' %>
@@ -129,8 +64,14 @@ Next Steps:
     <%= f.submit 'Schedule An In-Person Interview' %>
   <% end %>
 <% else session[:user_type] == 'Student' %>
+    
+  <h2> Next Steps: </h2>
+<ul>
+<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
+<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
+</ul>
   <button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
-  <button> <a href = "/students/logout">Logout</a> </button>    
+  <button> <a href = "/students/logout">Logout</a> </button>
 <% end %>
 
 </body>

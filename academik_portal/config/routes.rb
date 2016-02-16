@@ -4,14 +4,17 @@ Rails.application.routes.draw do
   post '/admission_officers/login' => 'admission_officers#login'
   post '/create' => 'admission_officers#create'
 
-  get '/admission_officers/logout' => 'admission_officers#logout'
-  post '/admission_officers/logout' => 'admission_officers#logout'
+  # get '/admission_officers/logout' => 'admission_officers#logout'
+  # post '/admission_officers/logout' => 'admission_officers#logout'
 
   get '/instructors/login_form' => 'instructors#login_form'
   post '/instructors/login' => 'instructors#login'
 
-  get '/instructors/logout' => 'instructors#logout'
-  post '/instructors/logout' => 'instructors#logout'
+  # get '/instructors/logout' => 'instructors#logout'
+  # post '/instructors/logout' => 'instructors#logout'
+
+  get '/logout' => 'application#logout'
+  post '/logout' => 'application#logout'
 
   resources :admission_officers, :instructors do 
     resources :students
@@ -24,8 +27,8 @@ Rails.application.routes.draw do
   get '/students/new' => 'students#new'
   post '/students/create' => 'students#create'
 
-  get '/students/logout' => 'students#logout'
-  post '/students/logout' => 'students#logout'
+  # get '/students/logout' => 'students#logout'
+  # post '/students/logout' => 'students#logout'
 
   resources :students
   resources :ao_questionnaires
