@@ -50,7 +50,6 @@ end
   InstructorQuestionnaire.create(
 		strengths: Faker::Hipster.sentence(8),
 		weaknesses: Faker::Hipster.sentence(5),
-		good_fit: [true, false].sample,
 		comments: Faker::Hipster.sentence(15)
   )
 end
