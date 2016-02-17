@@ -1,9 +1,7 @@
 "use strict";
 $(document).ready(function(){
-	console.log("loaded clicks");
+	console.log("loaded");
 
-	// var minutes = 0;
-	// var seconds = 0;
 	var timerId;
 	var end = $(".end");
 	var timer = $("#timer");
