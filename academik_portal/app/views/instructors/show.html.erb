@@ -1,3 +1,14 @@
+<% if @students_interviewed.any? %>
+  <h1>In-Person Interviews Completed By <%= @instructor.name %></h1>
+  <% @students_interviewed.each do |student| %>
+    <h2><%= link_to student.name, student_path(student.id) %></h2>
+    <h3><%= student.phone_number %></h3>
+    <h3><%= mail_to student.email %></h3>
+    <a href="/students/<%= student.id %>/instructor_questionnaires"><button>View This Questionnaire</button></a>
+    <br>
+  <% end %>
+<% end %>
+
 <% if @students_scheduled.any? %>	
   <h1>In-Person Interviews Scheduled With <%= @instructor.name %></h1>
 
@@ -10,11 +21,13 @@
   <% end %>
 <% end %>
 
-<h1>Applicants With In-Person Interviews Pending</h1>
+<% if @students.any? %>  
+  <h1>Applicants With In-Person Interviews Pending</h1>
 
-<% @students.each do |student| %>
-  <h2><%= link_to student.name, student_path(student.id) %></h2>
-  <h3><%= student.phone_number %></h3>
-  <h3><%= mail_to student.email %></h3>
-  <br>
-<% end %>	
+  <% @students.each do |student| %>
+    <h2><%= link_to student.name, student_path(student.id) %></h2>
+    <h3><%= student.phone_number %></h3>
+    <h3><%= mail_to student.email %></h3>
+    <br>
+  <% end %>	
+<% end %>  
