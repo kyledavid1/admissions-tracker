@@ -1,8 +1,7 @@
-
 class ApplicationController < ActionController::Base
 
-	layout 'layout', :except => :index
 
+	layout 'layout', :except => :index
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 		protect_from_forgery with: :exception

@@ -3,35 +3,33 @@
 <!-- if student_logged_in do -->
 <!-- Uncomment when we seed data
 Commented on 2/10/16 -->
+   
+  <style>
 
-   <style>
+    h1{
+       color: white;
+    }
 
-h1{
-   color: white;
-   background: black;
-}
+    a{ 
+      font-size: 18px;
+      position: relative;
+      left: 5px;
+    }
 
-a{ 
-  font-size: 18px;
-  position: relative;
-  left: 5px;
-}
+    h2 {
+    	color: black;
+    }
 
-h2 {
-	color: black;
-}
+    p{
+    	font-size: 20px;
+    	color: rgba(240, 72, 72, 0.75);
+    }
+  
 
-p{
-	font-size: 20px;
-	color: rgba(240, 72, 72, 0.75);
-}
-
-</style>
-
-
-      
+  </style>
 
 <center><h1><%= @student.name %> </h1></center>
+
 
 <center> <img src= "<%= @student.picture %>" alt= "student"> </center> <br>
 
@@ -42,7 +40,12 @@ p{
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
 <h2>Instructor Questionnaire Comments</h2><p><%= @instructor_questionnaire.comments%></p>
 
+
+
+<% if session[:user_type] == 'Admission Officer' %>
+
 <% if session[:user_type] == 'AdmissionOfficer' %>
+
   <h2>Admission Officers</h2>
   <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
 <% elsif session[:user_type] == 'Instructor' %>
@@ -54,6 +57,20 @@ p{
   <% end %>
 <% else session[:user_type] == 'Student' %>
   <h2> Next Steps: </h2>
+
+<ul>
+<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
+<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
+<li> If you wish to withdraw from the application process, you can delete your account <a href = "/students/delete">here</a>. </li>
+</ul>
+  <button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
+  <button> <a href = "/students/logout">Logout</a> </button>
+<% end %>
+  </html>
+  <%= @instructor_questionnaire.comments %>
+
+</body>
+
   <ul>
     <li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
     <li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
@@ -64,3 +81,4 @@ p{
 
 </body>
   </html>
+
