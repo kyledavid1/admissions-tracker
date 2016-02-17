@@ -16,36 +16,37 @@ Commented on 2/10/16 -->
 	<title>Student Profile</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link href="/css/carousel.css" rel="stylesheet">
+   <style>
 
-   
-  <style>
+h1{
+   color: white;
+   background: black;
+}
 
-    h1{
-       color: white;
-    }
+a{ 
+  font-size: 18px;
+  position: relative;
+  left: 5px;
+}
 
-    a{ 
-      font-size: 18px;
-      position: relative;
-      left: 5px;
-    }
+h2 {
+	color: black;
+}
 
-    h2 {
-    	color: black;
-    }
+p{
+	font-size: 20px;
+	color: rgba(240, 72, 72, 0.75);
+}
 
-    p{
-    	font-size: 20px;
-    	color: rgba(240, 72, 72, 0.75);
-    }
-  
-
-  </style>
+</style>
 
 </head>
 
 <body>
 
+<<<<<<< HEAD
+<center> <h1><%= @student.name %> </h1> </center>
+=======
  <div class="header-logo-bar">
     <img class="admissions-logo" src="/admissions_logo_bar.png">
  </div>
@@ -84,6 +85,7 @@ Commented on 2/10/16 -->
       
 
 <center><h1><%= @student.name %> </h1></center>
+>>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
 
 <center> <img src= "<%= @student.picture %>" alt= "student"> </center> <br>
 
@@ -93,8 +95,12 @@ Commented on 2/10/16 -->
 <h2>Application Essay: </h2> <p><%= @student.application_essay %></p><br>
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
 
+<<<<<<< HEAD
+<% if session[:user_type] == 'AdmissionOfficer' %>
+=======
 
 <% if session[:user_type] == 'Admission Officer' %>
+>>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
   <h2>Admission Officers</h2>
   <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
 <% elsif session[:user_type] == 'Instructor' %>
@@ -105,9 +111,26 @@ Commented on 2/10/16 -->
     <%= f.submit 'Schedule An In-Person Interview' %>
   <% end %>
 <% else session[:user_type] == 'Student' %>
+    
+  <h2> Next Steps: </h2>
+<ul>
+<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
+<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
+</ul>
   <button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
-  <button> <a href = "/students/logout">Logout</a> </button>    
+  <button> <a href = "/students/logout">Logout</a> </button>
 <% end %>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<% if session[:user_id] == 'AdmissionOfficer' || session[:user_id] == 'Instructor' %>
+
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
+>>>>>>> 22be19c8e62437f7d2915aac51e6d72a6932cc9c
 </body>
   </html>

@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
 
 	before_action except: [:login, :login_form, :new, :create, :edit] do
 		if current_user.nil? || (current_user.is_a?(Student) && params[:id].to_i != current_user.id)
-			redirect_to 'students/id'
+			redirect_to '/students/id'
 		end
 	end
 
@@ -53,6 +53,10 @@ class StudentsController < ApplicationController
 
 	#student will not be able to search for other students, only look at their own page
 	def show
+<<<<<<< HEAD
+		@student = Student.find(params[:id])
+		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
+=======
 		@id = params[:id]
 		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestionnaire.new
@@ -63,6 +67,7 @@ class StudentsController < ApplicationController
 	# 	else
 	# 		@student = Student.find(params[:id])
 	# 	end
+>>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
 	end
 
 	def new

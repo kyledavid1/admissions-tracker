@@ -27,35 +27,14 @@ a{
 	left: 20px;
 }
 
-.input-name, .input-email, .input-password, .input-phone, .input-course, .input-essay{
-	font-size: 18px;
-	color: black;
-	padding-top: 8px;
-	padding-bottom: 5px;
-}
-
-.signup-button{
-	color: white;
-	background: black;
-	position: relative;
-	left: 10px;
-	top: 15px;
-	
-}
-
-.signup-button:active{
-	background: red;
-}
-
-.text-muted{
-  color: rgba(240, 72, 72, 0.75);
-  font-weight: bold;
-}
-
 p {
 	font-size: 18px;
 	font-weight: bold;
 	color: black;
+}
+
+.user-greeting > li {
+  color: white;
 }
 
 
@@ -92,19 +71,26 @@ p {
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
+                <% if session['user_id'] %>
+                    <a href="/logout" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log Out <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Students</a></li>
                     <li><a href="#">Admissions Officers</a></li>
                     <li><a href="#">Instructors</a></li>
+                    <% else %>
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In<span class="caret"></span></a>
+                    <% end %>
                     <!-- <li role="separator" class="divider"></li>
                     <li class="dropdown-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li> -->
                   </ul>
                 </li>
-                <li><a href="#about">About</a></li>
+                <li><a href="/about">About</a></li>
                 <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
+                <% if session["user_id"] %>
+                <li class="user-greeting"> Hello there! </li>
+                <% end %>
               </ul>
             </div>
           </div>
