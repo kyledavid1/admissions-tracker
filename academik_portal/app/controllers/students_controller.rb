@@ -31,19 +31,9 @@ class StudentsController < ApplicationController
 	end
 
 	def show
+
 		@student = Student.find(params[:id])
-		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
-		@id = params[:id]
-		@student = Student.find(@id)
-		@ao_questionnaire = AoQuestionnaire.new
-		@instructor_questionnaire = InstructorQuestionnaire.find_by(student_id: params[:id])
-		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
-	# 	if student_logged_in
-	# 		render : 
-	# 		#students will not be able to see this, they will be redirected back to their dashboard
-	# 	else
-	# 		@student = Student.find(params[:id])
-	# 	end
+
 	end
 
 	def new
@@ -74,9 +64,10 @@ class StudentsController < ApplicationController
 
 	def update
 		@id = params[:id]
-		@student = Student.find(@id)
-        	@student.update(student_params)
-        	respond_to do |format|
+  		@student = Student.find(@id)
+        if session[:user_type] == 'Student'
+          	@student.update(student_params)
+          	respond_to do |format|
 			if @student.save
 				StudentMailer.edit_email(@student).deliver_now
 				format.html { redirect_to '/students/login_form', notice: 'You successfully edited your profile.'}
@@ -85,7 +76,12 @@ class StudentsController < ApplicationController
 				format.html { render :new}
 				format.json { render json: @user.errors, status: :unprocessable_entity }
 			end
-		end
+        elsif session[:user_type] == 'Admission Officer'
+         	@student.update_attributes(application_status: "Phone Interview Scheduled", admission_officer_id: session[:user_id])
+        else session[:user_type] == 'Instructor'
+       		@student.update_attributes(application_status: "In-Person Interview Scheduled", instructor_id: session[:user_id])
+       		redirect_to instructor_path(session[:user_id])
+        end
     end
 
     def destroy
