@@ -1,8 +1,3 @@
-<!-- This will be where we put code that determines if a student is logged in. They will only be able to see their own profile.  -->
-
-<!-- if student_logged_in do -->
-<!-- Uncomment when we seed data
-Commented on 2/10/16 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,33 +76,16 @@ Commented on 2/10/16 -->
           </div>
         </nav>
 
-      
+<center><h1>Instructor Questionnaire for <%= @student.name %></h1></center>
 
-<center><h1><%= @student.name %> </h1></center>
-
-<center> <img src= "<%= @student.picture %>" alt= "student"> </center> <br>
-
-<h2>E-mail: </h2>  <p><%= @student.email %></p> <br>
-<h2>Course: </h2> <p><%= @student.course %></p> <br>
-<h2>Phone Number: </h2> <p><%= @student.phone_number %></p> <br>
-<h2>Application Essay: </h2> <p><%= @student.application_essay %></p><br>
-<h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
-
-
-<% if session[:user_type] == 'Admission Officer' %>
-  <h2>Admission Officers</h2>
-  <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
-<% elsif session[:user_type] == 'Instructor' %>
-  <h2>Instructors</h2>
-  <%= form_for @student, method: :patch do |f| %>
-    <%= f.hidden_field :application_status, value: @student.application_status %>
-    <%= f.hidden_field :instructor_id, value: @student.instructor_id %>
-    <%= f.submit 'Schedule An In-Person Interview' %>
-  <% end %>
-<% else session[:user_type] == 'Student' %>
-  <button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
-  <button> <a href = "/students/logout">Logout</a> </button>    
-<% end %>
+<h2>Strengths:</h2>
+	<p><%= @iq.strengths %></p>
+<h2>Weaknesses:</h2>
+	<p><%= @iq.weaknesses %></p>
+<h2>Comments:</h2>
+	<p><%= @iq.comments %></p>
+<br>
+<a href="/students/<%= @student.id %>"><%= @student.name %> Profile Page</a>
 
 </body>
-  </html>
+</html>	
