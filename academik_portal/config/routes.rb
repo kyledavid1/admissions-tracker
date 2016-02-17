@@ -27,17 +27,28 @@ Rails.application.routes.draw do
   get '/students/new' => 'students#new'
   post '/students/create' => 'students#create'
 
-<<<<<<< HEAD
+
   # get '/students/logout' => 'students#logout'
   # post '/students/logout' => 'students#logout'
-=======
+
+  get '/students/delete' => 'students#destroy'
+  delete '/students/delete' => 'students#destroy'
+
+
+
+  # get '/students/logout' => 'students#logout'
+  # post '/students/logout' => 'students#logout'
+
   resources :students do
     resources :ao_questionnaires, :instructor_questionnaires
   end
 
+  # get '/students/logout' => 'students#logout'
+  # post '/students/logout' => 'students#logout'
+
+
   get '/students/logout' => 'students#logout'
   post '/students/logout' => 'students#logout'
->>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
 
   resources :students
   resources :ao_questionnaires
