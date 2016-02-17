@@ -8,9 +8,13 @@
 	<meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-	<title>Login</title>
+	<title>Admission Officers Portal</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link href="/css/carousel.css" rel="stylesheet">
+
+  <!-- DO NOT TOUCH THE CODE BELOW FOR IT IS WHERE THE TIMER RENDERS!!!!! -->
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
    <style>
 
 h1{
@@ -48,11 +52,11 @@ p {
 
 </head>
 <body>
-<% if session['user_id'] %>
-<p> test </p>
-<% else %>
-<p> Log In? </p>
-<% end %>
+<%# if session['user_id'] %>
+<!-- <p> test </p> -->
+<%# else %>
+<!-- <p> Log In? </p> -->
+<%# end %>
 
  <div class="header-logo-bar">
        <img class="admissions-logo" src="/admissions_logo_bar.png">
