@@ -53,10 +53,8 @@ class StudentsController < ApplicationController
 
 	#student will not be able to search for other students, only look at their own page
 	def show
-<<<<<<< HEAD
 		@student = Student.find(params[:id])
 		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
-=======
 		@id = params[:id]
 		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestionnaire.new
@@ -67,7 +65,6 @@ class StudentsController < ApplicationController
 	# 	else
 	# 		@student = Student.find(params[:id])
 	# 	end
->>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
 	end
 
 	def new
