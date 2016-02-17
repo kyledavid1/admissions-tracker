@@ -11,6 +11,7 @@
 	<title>Admissions Officer Questionnaire</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link href="/css/carousel.css" rel="stylesheet">
+  <% javascript_include_tag 'timer.js' %>
    <style>
 
 h1{
@@ -31,11 +32,11 @@ h1{
 </head>
 <body>
 
-    <h1>Create a new Admin Questionnaire: </h1>
+    <h1>Create a New Admin Questionnaire: </h1>
 
 
      <div id="aoq">
-<%= form_for (@ao_questionnaire) do |x| %>
+<%= form_for @ao_questionnaire, method: :post do |x| %>
      <div class="input-course-goals">
   <%= x.text_area :course_goals, placeholder: "Course Goals" %><br>
      <div class="input-comments">
@@ -45,15 +46,17 @@ h1{
       <div class="input-reason">
   <%= x.text_area :reason_for_applying, placeholder: "Reason For Applying"%><br>
         </div>
-
+        <%= x.hidden_field :admission_officer_id, value: session[:user_id] %>
+      <%= x.hidden_field :student_id, value: params[:student_id] %>
+      <%= fields_for @student, method: :patch do |f| %>
+        <%= f.hidden_field :application_status, value: @student.application_status %>
+      <% end %>  
         <div class="aoq-submit">
   <%= x.submit "Add Questionnaire" %>
 
        </div>
 <% end %>
    </div><br>
-
-
 
 
 

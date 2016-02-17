@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   post '/students/create' => 'students#create'
 
 
+  # get '/students/logout' => 'students#logout'
+  # post '/students/logout' => 'students#logout'
+
   get '/students/delete' => 'students#destroy'
   delete '/students/delete' => 'students#destroy'
 
@@ -46,7 +49,6 @@ Rails.application.routes.draw do
 
   get '/students/logout' => 'students#logout'
   post '/students/logout' => 'students#logout'
-
 
   resources :students
   resources :ao_questionnaires

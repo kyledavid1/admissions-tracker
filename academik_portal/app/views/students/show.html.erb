@@ -28,9 +28,6 @@ Commented on 2/10/16 -->
 
   </style>
 
-</head>
-
-<body>
 
 <center><h1><%= @student.name %> </h1></center>
 
@@ -42,13 +39,17 @@ Commented on 2/10/16 -->
 <h2>Phone Number: </h2> <p><%= @student.phone_number %></p> <br>
 <h2>Application Essay: </h2> <p><%= @student.application_essay %></p><br>
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
-<h2>Instructor Questionnaire Comments</h2><p><%= @instructor_questionnaire.comments%></p>
 
 
 <% if session[:user_type] == 'AdmissionOfficer' %>
 
   <h2>Admission Officers</h2>
-  <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
+  <%= form_for @student, method: :patch do |f| %>
+    <%= f.hidden_field :application_status, value: @student.application_status %>
+    <%= f.hidden_field :admission_officer_id, value: @student.instructor_id %>
+    <%= f.submit 'Schedule A Phone Interview' %>
+  <% end %>
+
 <% elsif session[:user_type] == 'Instructor' %>
   <h2>Instructors</h2>
   <%= form_for @student, method: :patch do |f| %>
