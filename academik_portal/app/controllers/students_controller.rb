@@ -31,6 +31,7 @@ class StudentsController < ApplicationController
 	end
 
 	def show
+<<<<<<< HEAD
 
 		@student = Student.find(params[:id])
 		@instructor_questionnaire = InstructorQuestionnaire.find_by(student_id: params[:id])
@@ -38,10 +39,13 @@ class StudentsController < ApplicationController
 
 		
 
+=======
+>>>>>>> f6b172e8183f8de2d90e2e1bbaddf2af76d1d81e
 		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
 		@id = params[:id]
 		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestionnaire.new
+		@instructor_questionnaire = InstructorQuestionnaire.find_by(student_id: params[:id])
 		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
 	# 	if student_logged_in
 	# 		render : 
@@ -49,7 +53,10 @@ class StudentsController < ApplicationController
 	# 	else
 	# 		@student = Student.find(params[:id])
 	# 	end
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6b172e8183f8de2d90e2e1bbaddf2af76d1d81e
 	end
 
 	def new

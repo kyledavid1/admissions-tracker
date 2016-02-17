@@ -1,6 +1,5 @@
-
 <div id="flash">
-<%= flash[:success] %>
+  <%= flash[:success] %>
 </div>
 
 <script type="text/javascript">
@@ -13,61 +12,6 @@ $(document).ready(function(){
 
 <!-- Uncomment when we seed data
 Commented on 2/10/16 -->
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-	<title>Welcome A.O.</title>
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
-	<link href="/css/carousel.css" rel="stylesheet">
-   <style>
-
-h1{
-   color: white;
-}
-
-a{ 
-  font-size: 18px;
-  position: relative;
-  left: 5px;
-}
-
-.student-link > a{
-  font-size: 40px;
-  position: relative;
-  left: 8px;
-}
-
-button{
-	position: relative;
-	left: 20px;
-}
-
-h3 {
-  color: black;
-}
-
-h4{
-  text-decoration: underline;
-}
-
-
-p{
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.50);
-}
-
-
-
-
-
-
 
 
 
@@ -77,8 +21,6 @@ p{
 </head>
 <body>
 
-<<<<<<< HEAD
-=======
  <div class="header-logo-bar">
        <img class="admissions-logo" src="/admissions_logo_bar.png">
     </div>
@@ -131,6 +73,8 @@ p{
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 <h4><%= link_to "Questionnaire", new_ao_questionnaire_path %></h4>
+<<<<<<< HEAD
+<h4><%= link_to "Log The Fuck Out", logout_path %></h4>
 
 <h4><button><%= link_to "Log The Fuck Out", logout_path %></button><br />
 
@@ -139,18 +83,10 @@ p{
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
 <% @students.each do |s| %>
-<h3 class="student-link"><%= link_to s.name, student_path(s.id) %></h3>
-<h3>Email: </h3><p><%= s.email %></p><br>
-<h3>Phone: </h3><p><%= s.phone_number %></p><br>
-<h3>Course: </h3><p><%= s.course %></p><br>
-<h3>Application Essay: </h3><p><%= s.application_essay %></p><br>
-<h3>Application Status:</h3> <p><%= s.application_status %></p><br>
+  <h3 class="student-link"><%= link_to s.name, student_path(s.id) %></h3>
+  <h3>Email: </h3><p><%= s.email %></p><br>
+  <h3>Phone: </h3><p><%= s.phone_number %></p><br>
+  <h3>Course: </h3><p><%= s.course %></p><br>
+  <h3>Application Essay: </h3><p><%= s.application_essay %></p><br>
+  <h3>Application Status:</h3> <p><%= s.application_status %></p><br>
 <% end %>
-
-
-----------------------------------------------------------------------------
-<% end %>
-
-
-
-
