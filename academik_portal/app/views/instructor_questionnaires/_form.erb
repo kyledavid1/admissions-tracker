@@ -6,56 +6,44 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
 	<title>Instructor Questionnaire</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link href="/css/carousel.css" rel="stylesheet">
-   <style>
+  
+  <style>
 
-h1{
-   color: white;
-}
+    h1{
+       color: white;
+    }
 
-button{
-  position: relative;
-  top: 25px;
-  left: 533px;
-}
-
+    button{
+      position: relative;
+      top: 25px;
+      left: 533px;
+    }
 
   </style>
 
 </head>
-<body>
 
-    <h1>Create a new Instructor Questionnaire:</h1>
-    <div id="iq">
-<%= form_for @iq, method: :post do |r| %>
-    <div class="input-strength">
-  <%= r.text_field :strengths, placeholder: "Student Strengths" %><br>
-     </div>
-
-     <div class="input-weakness">
-  <%= r.text_field :weaknesses, placeholder: "Student Weaknesses" %><br>
-     </div>
-
-      <div class="input-comments">
-  <%= r.text_area :comments, placeholder: "Comments"%><br>
-      </div>
-  <%= r.hidden_field :instructor_id, value: session[:user_id] %>
-  <%= r.hidden_field :student_id, value: params[:student_id] %>
-  <%= fields_for @student method: :patch do |f| %>
-    <%= f.hidden_field :application_status: @student.application_status %>
-  <% end %>  
-  <% end %>    
-      <div class="iq-submit">
-  <%= r.submit "Add Questionnaire" %>
-
-      </div>
-<% end %>
   </div>
 
+  <h1>Create a new Instructor Questionnaire:</h1>
+  <div id="iq">
+    <%= form_for @iq, method: :post do |r| %>
+      <div class="input-strength"><%= r.text_field :strengths, placeholder: "Student Strengths" %><br></div>
+      <div class="input-weakness"><%= r.text_field :weaknesses, placeholder: "Student Weaknesses" %><br></div>
+      <div class="input-comments"><%= r.text_area :comments, placeholder: "Comments"%><br></div>
+      <%= r.hidden_field :instructor_id, value: session[:user_id] %>
+      <%= r.hidden_field :student_id, value: params[:student_id] %>
+      <%= fields_for @student, method: :patch do |f| %>
+        <%= f.hidden_field :application_status, value: @student.application_status %>
+      <% end %>  
+      <div class="iq-submit"><%= r.submit "Add Questionnaire" %></div>
+    <% end %>
+  </div>
 
-
-
+</body>
+</html>  

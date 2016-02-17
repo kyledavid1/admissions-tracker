@@ -40,14 +40,15 @@
 </head>
 
 
-<center><h1>Admission Officer Questionnaire for <%= @student.name %></h1></center>
 
-<h2>Course Goals:</h2>
-	<p><%= @ao_questionnaire.course_goals %></p>
+<center><h1>Instructor Questionnaire for <%= @student.name %></h1></center>
+
+<h2>Strengths:</h2>
+	<p><%= @iq.strengths %></p>
+<h2>Weaknesses:</h2>
+	<p><%= @iq.weaknesses %></p>
 <h2>Comments:</h2>
-	<p><%= @ao_questionnaire.comments %></p>
-<h2>Reason for Applying:</h2>
-	<p><%= @ao_questionnaire.reason_for_applying %></p>
+	<p><%= @iq.comments %></p>
 <br>
 <a href="/students/<%= @student.id %>"><%= @student.name %> Profile Page</a>
 
