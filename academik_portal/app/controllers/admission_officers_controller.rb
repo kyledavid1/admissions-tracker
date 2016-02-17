@@ -32,6 +32,8 @@ class AdmissionOfficersController < ApplicationController
 		@admin_officer = AdmissionOfficer.find(params[:id])
 		@students = Student.where(application_status: 'Phone Interview Pending')
 		flash[:success] = "Login Succesful!"
+		@students_scheduled = Student.where(application_status: 'Phone Interview Scheduled', admission_officer_id: params[:id])
+		@students_interviewed = Student.where(application_status: 'Phone Interview Completed', admission_officer_id: params[:id])
 		
 	end
 
