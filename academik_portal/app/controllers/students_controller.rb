@@ -81,8 +81,8 @@ class StudentsController < ApplicationController
         else session[:user_type] == 'Instructor'
        		@student.update_attributes(application_status: "In-Person Interview Scheduled", instructor_id: session[:user_id])
        		redirect_to instructor_path(session[:user_id])
-        end
-    end
+      end
+  end
 
     def destroy
     	@student = Student.find(params[:id])

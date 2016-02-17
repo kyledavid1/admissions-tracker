@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 		protect_from_forgery with: :exception
 
+	layout 'layout', :except => :index
+
+
 	def current_user
 		case session[:user_type]
 			when 'Student' then Student.find_by(id: session[:user_id])
@@ -13,10 +16,9 @@ class ApplicationController < ActionController::Base
 			when 'AdmissionOfficer' then AdmissionOfficer.find_by(id: session[:user_id])
 		end
 		#need code here to indicate that the person currently logged in is a student
-	end	
-
+	end
 	def logout 
     	session.delete('user_id')
     	redirect_to '/'
-  	end
+  end
 end
