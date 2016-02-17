@@ -1,68 +1,5 @@
-<div id="flash">
-  <%= flash[:success] %>
-</div>
 
-<script type="text/javascript">
-$(document).ready(function(){
-  setTimeout(function(){
-    $('#flash').remove();
-  }, 1200);
- })
-</script>
-
-<!-- Uncomment when we seed data
-Commented on 2/10/16 -->
-
-
-
-
-  </style>
-
-</head>
 <body>
-
- <div class="header-logo-bar">
-       <img class="admissions-logo" src="/admissions_logo_bar.png">
-    </div>
-
-      <div class="navbar-wrapper">
-      <div class="container">
-
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/">GA Admissions Portal</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="/students/login_form">Students</a></li>
-                    <li><a href="/admission_officers/login_form">Admissions Officers</a></li>
-                    <li><a href="/instructors/login_form">Instructors</a></li>
-                    <!-- <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li> -->
-                  </ul>
-                </li>
-                <li><a href="/about">About</a></li>
-                <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-
-      </div>
-    </div>
 
 
 <h1>Welcome <%= @admin_officer.name %></h1>
@@ -73,12 +10,8 @@ Commented on 2/10/16 -->
 	<h4><%= link_to "Edit Admin", edit_admission_officer_path %></h4>
 
 <h4><%= link_to "Questionnaire", new_ao_questionnaire_path %></h4>
-<<<<<<< HEAD
-<h4><%= link_to "Log The Fuck Out", logout_path %></h4>
 
-<h4><button><%= link_to "Log The Fuck Out", logout_path %></button><br />
-
-<h4><button><%= link_to "Log Out", admission_officers_logout_path %></button><br />
+<h4><button><%= link_to "Log Out", logout_path %></button><br />
 
 ----------------------------------------------------------------------------
 <!-- Shows all students belonging to their admissions officer -->
