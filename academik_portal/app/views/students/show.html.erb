@@ -95,12 +95,7 @@ p{
 <h2>Application Essay: </h2> <p><%= @student.application_essay %></p><br>
 <h2>Application Status: </h2> <p><%= @student.application_status %></p> <br>
 
-<<<<<<< HEAD
 <% if session[:user_type] == 'AdmissionOfficer' %>
-=======
-
-<% if session[:user_type] == 'Admission Officer' %>
->>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
   <h2>Admission Officers</h2>
   <a href="/students/<%=@id%>/edit"><button>Schedule a Phone Screening</button></a><br> 
 <% elsif session[:user_type] == 'Instructor' %>
@@ -111,26 +106,14 @@ p{
     <%= f.submit 'Schedule An In-Person Interview' %>
   <% end %>
 <% else session[:user_type] == 'Student' %>
-    
   <h2> Next Steps: </h2>
-<ul>
-<li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
-<li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
-</ul>
+  <ul>
+    <li> You will be contacted by an admissions officer for a phone interview within the next week. </li>
+    <li> After you have successfully completed a phone interview, you will be contacted by an instructor to schedule an in-person interview </li>
+  </ul>
   <button> <a href = "/students/<%=@student.id%>/edit">Edit your information </a> </button> <br>
   <button> <a href = "/students/logout">Logout</a> </button>
 <% end %>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<% if session[:user_id] == 'AdmissionOfficer' || session[:user_id] == 'Instructor' %>
-
-
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 94e57959f4f0650c523a3165b6a87458e7bcf960
->>>>>>> 22be19c8e62437f7d2915aac51e6d72a6932cc9c
 </body>
   </html>
