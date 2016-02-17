@@ -3,11 +3,53 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+	<title>Student Profile</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link href="/css/carousel.css" rel="stylesheet">
+
+   
+  <style>
+
+    h1{
+       color: white;
+    }
+
+    a{ 
+      font-size: 18px;
+      position: relative;
+      left: 5px;
+    }
+
+    h2 {
+    	color: black;
+    }
+
+    p{
+    	font-size: 20px;
+    	color: rgba(240, 72, 72, 0.75);
+    }
+  
+
+  </style>
 
 </head>
-<body>
-	
+
+
+<center><h1>Admission Officer Questionnaire for <%= @student.name %></h1></center>
+
+<h2>Course Goals:</h2>
+	<p><%= @ao_questionnaire.course_goals %></p>
+<h2>Comments:</h2>
+	<p><%= @ao_questionnaire.comments %></p>
+<h2>Reason for Applying:</h2>
+	<p><%= @ao_questionnaire.reason_for_applying %></p>
+<br>
+<a href="/students/<%= @student.id %>"><%= @student.name %> Profile Page</a>
+
 </body>
-</html>
+</html>	
