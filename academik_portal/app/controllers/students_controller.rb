@@ -57,6 +57,7 @@ class StudentsController < ApplicationController
 		@id = params[:id]
 		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestionnaire.new
+		@instructor_questionnaire = InstructorQuestionnaire.find_by(student_id: params[:id])
 		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
 	# 	if student_logged_in
 	# 		render : 
