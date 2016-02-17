@@ -32,8 +32,10 @@ class InstructorsController < ApplicationController
 
   def show  
     @instructor = Instructor.find(params[:id])
-    @students_scheduled = Student.where(instructor_id: params[:id])
     @students = Student.where(application_status: 'In-Person Interview Pending')
+    @students_scheduled = Student.where(application_status: 'In-Person Interview Scheduled', instructor_id: params[:id])
+    @students_interviewed = Student.where(application_status: 'Interviews Completed', instructor_id: params[:id])
+    # @iq = InstructorQuestionnaire.find(instructor_id: @instructor.id)
   end
 
   def new

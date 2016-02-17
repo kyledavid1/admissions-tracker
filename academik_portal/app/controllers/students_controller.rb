@@ -31,11 +31,25 @@ class StudentsController < ApplicationController
 	end
 
 	def show
+<<<<<<< HEAD
 		@student = Student.find(params[:id])
 		@instructor_questionnaire = InstructorQuestionnare.find_by(student_id: params[:id])
 		@id = params[:id]
 		@student = Student.find(@id)
 		@ao_questionnaire = AoQuestion
+=======
+		# @instructor_questionnaire = InstructorQuestionnare.find(student_id: params[:id])
+		@id = params[:id]
+		@student = Student.find(@id)
+		@ao_questionnaire = AoQuestionnaire.new
+		# @instructor_questionnaire = InstructorQuestionnaire.find(params[:])
+	# 	if student_logged_in
+	# 		render : 
+	# 		#students will not be able to see this, they will be redirected back to their dashboard
+	# 	else
+	# 		@student = Student.find(params[:id])
+	# 	end
+>>>>>>> 1d42b258852059ebd5c799685dc2b6fea5243be7
 	end
 
 	def new

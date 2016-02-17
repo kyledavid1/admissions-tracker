@@ -1,6 +1,6 @@
 "use strict";
 $(document).ready(function(){
-	console.log("loaded");
+	console.log("loaded clicks");
 
 	// var minutes = 0;
 	// var seconds = 0;
@@ -32,15 +32,16 @@ function endTimer() {
    	// localStorage.removeItem('minutes', 'seconds');
   };
 
-window.onload = function () {
+// window.onload = function () {
     var tenMinutes = 60 * 10,
         display = document.querySelector('#timer');
     $(".start").click(function() {
+      console.log("clicked");
 	startTimer(tenMinutes, display);
   
   });
     end.on('click', function() {
 			endTimer();
   });
-};
+// };
 });

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+	<title>Student Profile</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link href="/css/carousel.css" rel="stylesheet">
+
+   
+  <style>
+
+    h1{
+       color: white;
+    }
+
+    a{ 
+      font-size: 18px;
+      position: relative;
+      left: 5px;
+    }
+
+    h2 {
+    	color: black;
+    }
+
+    p{
+    	font-size: 20px;
+    	color: rgba(240, 72, 72, 0.75);
+    }
+  
+
+  </style>
+
+</head>
+
+<body>
+
+ <div class="header-logo-bar">
+    <img class="admissions-logo" src="/admissions_logo_bar.png">
+ </div>
+
+ <div class="navbar-wrapper">
+   <div class="container">
+     <nav class="navbar navbar-inverse navbar-static-top">
+       <div class="container">
+         <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">GA Admissions Portal</a>
+         </div>
+           <div id="navbar" class="navbar-collapse collapse">
+             <ul class="nav navbar-nav">
+               <li class="active"><a href="/">Home</a></li>
+               <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li><a href="/students/login_form">Students</a></li>
+                   <li><a href="/admission_officers/login_form">Admissions Officers</a></li>
+                   <li><a href="/instructors/login_form">Instructors</a></li>
+                  </ul>
+                </li>
+                <li><a href="/about">About</a></li>
+                <li><a href="mailto:hello@generalassemb.ly">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+<center><h1>Instructor Questionnaire for <%= @student.name %></h1></center>
+
+<h2>Strengths:</h2>
+	<p><%= @iq.strengths %></p>
+<h2>Weaknesses:</h2>
+	<p><%= @iq.weaknesses %></p>
+<h2>Comments:</h2>
+	<p><%= @iq.comments %></p>
+<br>
+<a href="/students/<%= @student.id %>"><%= @student.name %> Profile Page</a>
+
+</body>
+</html>	
